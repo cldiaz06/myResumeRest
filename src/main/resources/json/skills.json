@@ -1,0 +1,31 @@
+
+	[		 
+		 	  {
+				"header" : "Languages",
+				"detail":"TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"
+			  },
+			  {
+				 "header" : "Frameworks",
+				 "detail" : "Spring MVC & Boot, ASP.net 4.0: MVC, Web Forms & Entity"
+			  },
+			  {
+				  "header" : "OS",
+				  "detail" : "Windows XP/7/10/Server 2008/12, Ubuntu"
+			  },
+			  {
+				  "header" : "SCM",
+				  "detail" : "GitLab, GitHub, Sourcetree, Borland Starteam"
+			  },
+			  {
+				  "header" : "Workstation",
+				  "detail" : "MsSQL 2008R2/2012, Tomcat, MySQL, Hybris, IBM AS400, VirtualBox"
+			  },
+			  {
+				  "header" : "Apps/Services",
+				  "detail" : "Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5"
+			  },
+			  {
+				  "header" : "Hardware",
+				  "detail" : "RJ-45 Cabling, Cisco RIP/IGRP/EIGRP"
+			  }
+	]

@@ -27,6 +27,11 @@ public class Skills {
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
+
+	@Override
+	public String toString() {
+		return "Skills [header=" + header + ", detail=" + detail + "]";
+	}
 	
 	
 	

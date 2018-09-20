@@ -1,0 +1,14 @@
+1) Using Spring Boot, build REST api for resume data
+	a) load from sources files (Json, Xml, yaml)
+        b) build api to get BasicInfo, Experience, skills, and education 
+	c) build api to generate PDF and set to get request.
+2) AngularJS, build website to show resume
+	a) main page is the basic info
+	b) second page is for Skills
+	c) third page is for Experience
+	d) fourth page is for education
+	e) fifth shows the pdf with with link to request references.
+
+
+
+

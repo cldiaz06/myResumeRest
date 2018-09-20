@@ -22,6 +22,10 @@ public class Resume {
 		this.format = format;
 	}
 
+	public Resume(BasicInfo basic, Skills[] skill, Experience[] exp, Education[] edu, String string) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public BasicInfo getBasicInfo() {
 		return basicInfo;
 	}

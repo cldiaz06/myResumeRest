@@ -1,0 +1,14 @@
+[		 
+	{
+	    "startDate":"2013",
+	    "endDate":"Current",
+	    "title":"Software Engineer",
+	    "city":"Bedford Park",
+	    "company":"Cintas Uniform Corp",
+	    "state": "IL",
+	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
+        "projDetails":["Hybris go Live","Delphi switch to XE5/FireDac", "Cust. Maigration to Hybris"],
+        "appSupDetails":["Triage reported issues to determine root cause","Based on results, make code changes"],
+        "genDutyDetails":["Implement business request system & data changes","Write SQL scripts"]
+    }		  
+]

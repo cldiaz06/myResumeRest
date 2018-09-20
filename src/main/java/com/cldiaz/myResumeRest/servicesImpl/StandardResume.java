@@ -67,7 +67,7 @@ public class StandardResume implements PdfResumeGenerator {
 		PdfPCell leftTable = getCell(null, null);
 		PdfPTable leftHeader = new PdfPTable(1);
 		leftHeader.setHorizontalAlignment(Element.ALIGN_LEFT);
-		PdfPCell name = new PdfPCell(getCell(basicInfo.getFullName(), Name_Header));
+		PdfPCell name = new PdfPCell(getCell(basicInfo.getFirstName() + " " + basicInfo.getLastName(), Name_Header));
 		PdfPCell title1 = new PdfPCell(getCell(basicInfo.getTitle(), Title_Header));
 		
 		leftHeader.addCell(name);
@@ -80,11 +80,11 @@ public class StandardResume implements PdfResumeGenerator {
 		PdfPCell rightTable = getCell(null, null);
 		PdfPTable rightHeader = new PdfPTable(1);
 		rightHeader.setHorizontalAlignment(Element.ALIGN_RIGHT);
-		PdfPCell city = new PdfPCell(getCell(basicInfo.getAddress(), Normal_Font));
+		PdfPCell city = new PdfPCell(getCell(basicInfo.getCity() + ", " + basicInfo.getState(), Normal_Font));
 		PdfPCell postal = new PdfPCell(getCell(basicInfo.getPostalcode(), Normal_Font));
 		PdfPCell phone = new PdfPCell(getCell(basicInfo.getPhone(), Normal_Font));
 		PdfPCell email = new PdfPCell(getCell(basicInfo.getEmail(), Normal_Font));
-		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGit_url(), Normal_Font));
+		PdfPCell git_url = new PdfPCell(getCell(basicInfo.getGitUrl(), Normal_Font));
 		
 		rightHeader.addCell(city);
 		rightHeader.addCell(postal);

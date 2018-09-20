@@ -87,6 +87,13 @@ public class BasicInfo {
 	public void setGit_url(String gitUrl) {
 		this.gitUrl = gitUrl;
 	}
+
+	@Override
+	public String toString() {
+		return "BasicInfo [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
+				+ ", postalcode=" + postalcode + ", title=" + title + ", phone=" + phone + ", email=" + email
+				+ ", gitUrl=" + gitUrl + "]";
+	}
 	
 	
 	

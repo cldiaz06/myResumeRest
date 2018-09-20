@@ -37,6 +37,12 @@ public class Education {
 	public String getAchievement() {
 		return achievement;
 	}
+
+	@Override
+	public String toString() {
+		return "Education [startDate=" + startDate + ", endDate=" + endDate + ", schoolName=" + schoolName
+				+ ", location=" + location + ", achievement=" + achievement + "]";
+	}
 	
 	
 	

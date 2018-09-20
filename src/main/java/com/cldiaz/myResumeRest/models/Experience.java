@@ -72,6 +72,14 @@ public class Experience {
 	public void setGenDutyDetails(ArrayList<String> genDutyDetails) {
 		this.genDutyDetails = genDutyDetails;
 	}
+
+	@Override
+	public String toString() {
+		return "Experience [startDate=" + startDate + ", endDate=" + endDate + ", title=" + title + ", city=" + city
+				+ ", company=" + company + ", state=" + state + ", summary=" + summary + ", projDetails=" + projDetails
+				+ ", appSupDetails=" + appSupDetails + ", genDutyDetails=" + genDutyDetails + "]";
+	}
+	
 	
 	
 }
