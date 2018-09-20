@@ -1,6 +1,7 @@
 package com.cldiaz.myResumeRest.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Resume {
 
@@ -22,7 +23,7 @@ public class Resume {
 		this.format = format;
 	}
 
-	public Resume(BasicInfo basic, Skills[] skill, Experience[] exp, Education[] edu, String string) {
+	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu, String string) {
 		// TODO Auto-generated constructor stub
 	}
 

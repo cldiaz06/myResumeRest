@@ -41,7 +41,7 @@ public class MyResumeRestApplicationTests {
 		
 			List<Skills> skill = mapper.readValue(skillJson, 
 					mapper.getTypeFactory().constructCollectionType(List.class, Skills.class));
-			List<Experience> exp = mapper.readValue(educationJson, 
+			List<Experience> exp = mapper.readValue(experienceJson, 
 					mapper.getTypeFactory().constructCollectionType(List.class, Experience.class));
 			
 			List<Education>edu = mapper.readValue(educationJson, 
