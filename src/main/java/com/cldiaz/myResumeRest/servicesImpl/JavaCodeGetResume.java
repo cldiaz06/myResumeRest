@@ -12,7 +12,7 @@ import com.cldiaz.myResumeRest.services.GetResume;
 public class JavaCodeGetResume implements GetResume {
 
 	@Override
-	public Resume getResume() {
+	public Resume getResume(Boolean debug) {
 		BasicInfo basic = new BasicInfo();
 		basic.setFirstName("Christopher");
 		basic.setLastName("Diaz");

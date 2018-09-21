@@ -11,7 +11,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
+import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.models.Skills;
+import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -21,6 +23,12 @@ public class MyResumeRestApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		JsonGetResume resume = new JsonGetResume();
+		
+		Resume newResume = resume.getResume(true);
+		
+		System.out.println(newResume.toString());
+		
 	}
 	
 	
@@ -34,6 +42,8 @@ public class MyResumeRestApplicationTests {
 			File skillJson = new File(classLoader.getResource("json/skills.json").getFile());
 			File educationJson = new File(classLoader.getResource("json/education.json").getFile());
 			File experienceJson = new File(classLoader.getResource("json/experience.json").getFile());
+			
+			System.out.println(basicJson.getPath());
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -73,4 +83,6 @@ public class MyResumeRestApplicationTests {
 			ex.printStackTrace();
 		}
 	}
+	
+	
 }

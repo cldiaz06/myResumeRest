@@ -24,7 +24,11 @@ public class Resume {
 	}
 
 	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu, String string) {
-		// TODO Auto-generated constructor stub
+		this.basicInfo = basic;
+		this.skills = (ArrayList<Skills>) skill;
+		this.experience = (ArrayList<Experience>) exp;
+		this.education = (ArrayList<Education>) edu;
+		this.format = format;
 	}
 
 	public BasicInfo getBasicInfo() {
@@ -66,8 +70,12 @@ public class Resume {
 	public void setFormat(String format) {
 		this.format = format;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Resume [basicInfo=" + basicInfo + ", skills=" + skills + ", experience=" + experience + ", education="
+				+ education + ", format=" + format + "]";
+	}
 	
 	
 	

@@ -20,7 +20,7 @@ public class ResumeRestController {
 	public Resume getResume() {
 		
 		JsonGetResume getResume = new JsonGetResume();
-		Resume resume = getResume.getResume();
+		Resume resume = getResume.getResume(false);
 		return resume;
 	}
 }

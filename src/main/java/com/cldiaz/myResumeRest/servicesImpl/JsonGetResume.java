@@ -3,6 +3,10 @@ package com.cldiaz.myResumeRest.servicesImpl;
 import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Value;
+
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
@@ -12,9 +16,9 @@ import com.cldiaz.myResumeRest.services.GetResume;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JsonGetResume implements GetResume {
-
+	
 	@Override
-	public Resume getResume() {
+	public Resume getResume(Boolean debug) {
 		// TODO Auto-generated method stub
 		try {
 		
@@ -36,7 +40,27 @@ public class JsonGetResume implements GetResume {
 			
 			List<Education>edu = mapper.readValue(educationJson, 
 					mapper.getTypeFactory().constructCollectionType(List.class, Education.class));
-
+			
+			if (debug) {
+				System.out.println("***Basicinfo*****");
+				System.out.println(basic.toString());
+				
+				System.out.println("***Skills*****");
+				for(Skills temp :skill) {
+					System.out.println(temp.toString());
+				}
+				
+				System.out.println("***Experience*****");
+				for(Experience temp :exp) {
+					System.out.println(temp.toString());
+				}
+				
+				System.out.println("***Education*****");
+				for(Education temp :edu) {
+					System.out.println(temp.toString());
+				}
+			}
+			
 			return new Resume(basic, skill, exp, edu, "default");
 		
 		}catch(Exception ex) {
