@@ -13,6 +13,9 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
+
 
 @Configuration
 @EnableWebMvc
@@ -34,15 +37,27 @@ public class WebAppConfig implements WebMvcConfigurer{
 		
 		List<ViewResolver> resolvers = new ArrayList<>();
 		
-		resolvers.add(pdfViewResolver());
+		//resolvers.add(pdfViewResolver());
+		resolvers.add(jspViewResolver());
 		
 		resolver.setViewResolvers(resolvers);
 		return resolver;
 	}
 	
+//	@Bean
+//	public ViewResolver pdfViewResolver() {
+//		return new ViewResolver;//PdfViewResolver();
+//	}
+//	
+
+	
 	@Bean
-	public ViewResolver pdfViewResolver() {
-		return new PdfViewResolver();
+	public ViewResolver jspViewResolver() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setViewClass(JstlView.class);
+		viewResolver.setPrefix("/WEB-INF/views");
+		viewResolver.setSuffix(".jsp");
+		return viewResolver;
 	}
 	
 }

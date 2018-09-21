@@ -1,5 +1,6 @@
 package com.cldiaz.myResumeRest.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +11,10 @@ import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
 @RestController
 @RequestMapping("/rest")
 public class ResumeRestController {
-
+	
+	@Autowired
+	private JsonGetResume jsonGetResume;
+	
 	@GetMapping("/hello")
 	public String sayHello() {
 		return "Hello World";
@@ -18,9 +22,14 @@ public class ResumeRestController {
 	
 	@GetMapping("/getResume")
 	public Resume getResume() {
-		
-		JsonGetResume getResume = new JsonGetResume();
-		Resume resume = getResume.getResume(false);
+	
+		Resume resume = jsonGetResume.getResume(false);
+		return resume;
+	}
+	
+	@GetMapping("/getResumePdf")
+	public Resume getResumePdf() {
+		Resume resume = jsonGetResume.getResume(false);
 		return resume;
 	}
 }
