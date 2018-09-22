@@ -1,8 +1,12 @@
 package com.cldiaz.myResumeRest.servicesImpl;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+
+import org.springframework.stereotype.Service;
 
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
@@ -19,6 +23,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
+import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
@@ -26,6 +31,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfTemplate;
 import com.itextpdf.text.pdf.PdfWriter;
 
+@Service
 public class StandardResume implements PdfResumeGenerator {
 	
 	private final static Font Normal_Font = new Font(Font.FontFamily.TIMES_ROMAN,11, Font.NORMAL);
@@ -38,6 +44,18 @@ public class StandardResume implements PdfResumeGenerator {
 	public StandardResume (Resume resume, Document doc, PdfWriter writer) throws DocumentException {
 		buildResumePdf(resume, doc, writer);
 	};
+	
+	public ByteArrayInputStream buildResumePdfRest(Resume resume) throws DocumentException{
+		Document doc = new Document(PageSize.A4);
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		PdfWriter writer = PdfWriter.getInstance(doc, out);
+		doc.open();
+		buildResumePdf(resume, doc, writer);
+		doc.close();
+		
+		return new ByteArrayInputStream(out.toByteArray());
+	}
+
 	
 	public void buildResumePdf(Resume resume, Document document, PdfWriter writer) throws DocumentException {
 		

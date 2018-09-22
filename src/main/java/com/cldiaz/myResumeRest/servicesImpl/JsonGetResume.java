@@ -3,9 +3,7 @@ package com.cldiaz.myResumeRest.servicesImpl;
 import java.io.File;
 import java.util.List;
 
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
@@ -15,6 +13,7 @@ import com.cldiaz.myResumeRest.models.Skills;
 import com.cldiaz.myResumeRest.services.GetResume;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service
 public class JsonGetResume implements GetResume {
 	
 	@Override
