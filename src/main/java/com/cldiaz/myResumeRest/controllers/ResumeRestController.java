@@ -28,11 +28,6 @@ public class ResumeRestController {
 	@Autowired
 	private StandardResume stan;
 	
-	@GetMapping("/hello")
-	public String sayHello() {
-		return "Hello World";
-	}
-	
 	@GetMapping("/getResume")
 	public Resume getResume() {
 	
@@ -43,6 +38,7 @@ public class ResumeRestController {
 	@RequestMapping(value ="/getResumePdf", method=RequestMethod.GET, 
 			produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
+		
 		Resume resume = jsonGetResume.getResume(false);
 		
 		ByteArrayInputStream bis = stan.buildResumePdfRest(resume);
