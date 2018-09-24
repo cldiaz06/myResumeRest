@@ -3,11 +3,16 @@ package com.cldiaz.myResumeRest.controllers;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,6 +33,9 @@ public class ResumeRestController {
 	@Autowired
 	private StandardResume stan;
 	
+	@Autowired
+	private JavaMailSender sender;
+	
 	@GetMapping("/getResume")
 	public Resume getResume() {
 	
@@ -35,8 +43,7 @@ public class ResumeRestController {
 		return resume;
 	}
 	
-	@RequestMapping(value ="/getResumePdf", method=RequestMethod.GET, 
-			produces = MediaType.APPLICATION_PDF_VALUE)
+	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
 		
 		Resume resume = jsonGetResume.getResume(false);
@@ -52,4 +59,26 @@ public class ResumeRestController {
 				.contentType(MediaType.APPLICATION_PDF)
 				.body(new InputStreamResource(bis));
 	}
+	
+	@RequestMapping(value="/sendEmail")
+	public String sendEmail() {
+		MimeMessage message = sender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(message);
+		
+		try {
+			helper.setTo("help@help.com");
+			helper.setText("testing sending email");
+			helper.setSubject("references");
+			
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			return "Error while sending email";
+		}
+		
+		sender.send(message);
+		return "success";
+		
+	}
+	
+	
 }
