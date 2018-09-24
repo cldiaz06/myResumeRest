@@ -13,9 +13,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldiaz.myResumeRest.models.Resume;
@@ -37,6 +38,7 @@ public class ResumeRestController {
 	private JavaMailSender sender;
 	
 	@GetMapping("/getResume")
+	@CrossOrigin(origins ="http://localhost:3000")
 	public Resume getResume() {
 	
 		Resume resume = jsonGetResume.getResume(false);
@@ -45,6 +47,7 @@ public class ResumeRestController {
 	
 	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
+		
 		
 		Resume resume = jsonGetResume.getResume(false);
 		
@@ -60,7 +63,7 @@ public class ResumeRestController {
 				.body(new InputStreamResource(bis));
 	}
 	
-	@RequestMapping(value="/sendEmail")
+	@PostMapping(value="/sendEmail")
 	public String sendEmail() {
 		MimeMessage message = sender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(message);
