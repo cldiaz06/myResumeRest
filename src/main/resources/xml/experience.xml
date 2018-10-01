@@ -1,0 +1,24 @@
+<experiences>
+	<experience>
+		<startDate></startDate>
+		<endDate></endDate>
+		<title></title>
+		<city></city>
+		<company></company>
+		<state></state>
+		<summary></summary>
+		<projDetails>
+			<projDetail></projDetail>
+			<projDetail></projDetail>
+			<projDetail></projDetail>
+		</projDetails>
+		<appSupDetails>
+			<appSuppDetail></appSuppDetail>
+			<appSuppDetail></appSuppDetail>
+		</appSupDetails>
+		<genDutyDetails>
+			<genDutyDetail></genDutyDetail>
+			<genDutyDetail></genDutyDetail>
+		</genDutyDetails>
+	</experience>
+</experiences>

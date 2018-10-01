@@ -20,7 +20,6 @@ public class Resume {
 		this.skills = skills;
 		this.experience = experience;
 		this.education = education;
-		this.format = format;
 	}
 
 	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu, String string) {
@@ -28,7 +27,6 @@ public class Resume {
 		this.skills = (ArrayList<Skills>) skill;
 		this.experience = (ArrayList<Experience>) exp;
 		this.education = (ArrayList<Education>) edu;
-		this.format = format;
 	}
 
 	public BasicInfo getBasicInfo() {
