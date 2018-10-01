@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
 import com.cldiaz.myResumeRest.servicesImpl.StandardResume;
@@ -37,30 +38,86 @@ public class ResumeRestController {
 	@Autowired
 	private JavaMailSender sender;
 	
-	@GetMapping("/getResume")
-	@CrossOrigin(origins ="http://localhost:3000")
-	public Resume getResume() {
+	private ConfigProperties prop;
+	private Resume res;
 	
-		Resume resume = jsonGetResume.getResume(false);
-		return resume;
+	@Autowired
+	public void setGlobalProperties(ConfigProperties prop) {
+		this.prop = prop;
+	}
+	
+	private String getPropFileType() {
+		return prop.getFileType();
+	}
+	
+	private String getPropTemplate() {
+		return prop.getTemplate();
+	}
+	
+	@GetMapping("/getResume")
+	//@CrossOrigin(origins ="http://localhost:3000")
+	public Resume getResume() {
+		
+		String fileType = getPropFileType();
+		
+		if(!fileType.isEmpty()){
+			if (fileType.equals("json")){
+				res = jsonGetResume.getResume(false);
+			}
+			else {
+				res = null;
+			}
+		}
+		
+		return res;
 	}
 	
 	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
 		
+		String fileType = getPropFileType();
+		String template = getPropTemplate();
 		
-		Resume resume = jsonGetResume.getResume(false);
+		ByteArrayInputStream bis = new ByteArrayInputStream(new byte[0]);
 		
-		ByteArrayInputStream bis = stan.buildResumePdfRest(resume);
+		if(!fileType.isEmpty()){
+			if (fileType.equals("json")){
+				res = jsonGetResume.getResume(false);
+			}
+			else {
+				res = null;
+			}
+		}
 		
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Disposition", "inline; filename=resume.pdf");
+		if(!template.isEmpty()) {
+
+			if (template.equals("standard")){
+				bis = stan.buildResumePdfRest(res);
+			}
+			
+			HttpHeaders headers = new HttpHeaders();
+			headers.add("Content-Disposition", "inline; filename=resume.pdf");
+			
+			return ResponseEntity
+					.ok()
+					.headers(headers)
+					.contentType(MediaType.APPLICATION_PDF)
+					.body(new InputStreamResource(bis));
+		} else {
+			return null;
+		}
+			
 		
-		return ResponseEntity
-				.ok()
-				.headers(headers)
-				.contentType(MediaType.APPLICATION_PDF)
-				.body(new InputStreamResource(bis));
+//		ByteArrayInputStream bis = stan.buildResumePdfRest(res);
+		
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.add("Content-Disposition", "inline; filename=resume.pdf");
+//		
+//		return ResponseEntity
+//				.ok()
+//				.headers(headers)
+//				.contentType(MediaType.APPLICATION_PDF)
+//				.body(new InputStreamResource(bis));
 	}
 	
 	@PostMapping(value="/sendEmail")
