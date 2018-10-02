@@ -13,8 +13,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +23,7 @@ import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
 import com.cldiaz.myResumeRest.servicesImpl.StandardResume;
+import com.cldiaz.myResumeRest.servicesImpl.XmlGetResume;
 import com.itextpdf.text.DocumentException;
 
 @RestController
@@ -31,6 +32,9 @@ public class ResumeRestController {
 
 	@Autowired
 	private JsonGetResume jsonGetResume;
+	
+	@Autowired
+	private XmlGetResume xmlGetResume;
 	
 	@Autowired
 	private StandardResume stan;
@@ -54,25 +58,24 @@ public class ResumeRestController {
 		return prop.getTemplate();
 	}
 	
-	@GetMapping("/getResume")
+	@GetMapping(value="/getResume/", produces="application/json")
 	//@CrossOrigin(origins ="http://localhost:3000")
 	public Resume getResume() {
 		
-		String fileType = getPropFileType();
-		
-		if(!fileType.isEmpty()){
-			if (fileType.equals("json")){
-				res = jsonGetResume.getResume(false);
-			}
-			else {
-				res = null;
-			}
-		}
+		res = jsonGetResume.getResume(false);		
 		
 		return res;
 	}
 	
-	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
+	@GetMapping(value="/getResume/xml", produces="application/xml")
+	public Resume getResumeXml() {
+		
+		res = xmlGetResume.getResume(false);		
+		
+		return res;
+	}
+	
+	@GetMapping(value ="/getResume/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
 		
 		String fileType = getPropFileType();
@@ -83,6 +86,9 @@ public class ResumeRestController {
 		if(!fileType.isEmpty()){
 			if (fileType.equals("json")){
 				res = jsonGetResume.getResume(false);
+			}
+			else if(fileType.equals("xml")) {
+				res = xmlGetResume.getResume(false);
 			}
 			else {
 				res = null;

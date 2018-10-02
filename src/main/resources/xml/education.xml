@@ -1,16 +1,16 @@
 <educations>
 	<education>
-		<startDate></startDate>
-		<endDate></endDate>
-		<schoolName></schoolName>
-		<location></location>
-		<achievement></achievement>
+		<startDate>2006</startDate>
+		<endDate>2012</endDate>
+		<schoolName>Illinois State University</schoolName>
+		<location>Normal, IL</location>
+		<achievement>Computer Systems Technology</achievement>
 	</education>
 	<education>
-		<startDate></startDate>
-		<endDate></endDate>
-		<schoolName></schoolName>
-		<location></location>
-		<achievement></achievement>
+		<startDate>2002</startDate>
+		<endDate>2006</endDate>
+		<schoolName>St.Patrick High School</schoolName>
+		<location>St.Patrick High School</location>
+		<achievement>Diploma</achievement>
 	</education>
 </educations>

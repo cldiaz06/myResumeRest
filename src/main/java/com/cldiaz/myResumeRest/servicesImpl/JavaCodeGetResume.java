@@ -58,7 +58,7 @@ public class JavaCodeGetResume implements GetResume {
 		edu.add(new Education("2002", "2006", "St. Patrick High School", "Chicago, IL", "High School Diploma"));
 		
 		
-		return new Resume(basic, skill, experience, edu, "default");
+		return new Resume(basic, skill, experience, edu);
 	}
 
 }

@@ -3,6 +3,8 @@ package com.cldiaz.myResumeRest.servicesImpl;
 import java.io.File;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
@@ -12,7 +14,7 @@ import com.cldiaz.myResumeRest.services.GetResume;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-
+@Service
 public class XmlGetResume implements GetResume {
 
 	@Override
@@ -60,7 +62,7 @@ public class XmlGetResume implements GetResume {
 				}
 			}
 			
-			return 
+			return new Resume(basic, skill, exp, edu);
 			
 		}catch(Exception x) {
 			x.printStackTrace();

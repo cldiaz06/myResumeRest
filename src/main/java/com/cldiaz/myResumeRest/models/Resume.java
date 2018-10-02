@@ -14,7 +14,7 @@ public class Resume {
 	public Resume() {}
 
 	public Resume(BasicInfo basicInfo, ArrayList<Skills> skills, ArrayList<Experience> experience,
-			ArrayList<Education> education, String format) {
+			ArrayList<Education> education) {
 		super();
 		this.basicInfo = basicInfo;
 		this.skills = skills;
@@ -22,7 +22,7 @@ public class Resume {
 		this.education = education;
 	}
 
-	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu, String string) {
+	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu) {
 		this.basicInfo = basic;
 		this.skills = (ArrayList<Skills>) skill;
 		this.experience = (ArrayList<Experience>) exp;

@@ -1,24 +1,24 @@
 <experiences>
 	<experience>
-		<startDate></startDate>
-		<endDate></endDate>
-		<title></title>
-		<city></city>
-		<company></company>
-		<state></state>
-		<summary></summary>
+		<startDate>2013</startDate>
+		<endDate>Current</endDate>
+		<title>Software Engineer</title>
+		<city>Bedford Park</city>
+		<company>Cintas Uniform Corp</company>
+		<state>IL</state>
+		<summary>Direct Sale and Rent Business goods such as Uniforms and floor mats</summary>
 		<projDetails>
-			<projDetail></projDetail>
-			<projDetail></projDetail>
-			<projDetail></projDetail>
+			<projDetail>Hybris go Live</projDetail>
+			<projDetail>Delphi switch to XE5/FireDac</projDetail>
+			<projDetail>Cust. Maigration to Hybris</projDetail>
 		</projDetails>
 		<appSupDetails>
-			<appSuppDetail></appSuppDetail>
-			<appSuppDetail></appSuppDetail>
+			<appSuppDetail>Triage reported issues to determine root cause</appSuppDetail>
+			<appSuppDetail>Based on results, make code changes</appSuppDetail>
 		</appSupDetails>
 		<genDutyDetails>
-			<genDutyDetail></genDutyDetail>
-			<genDutyDetail></genDutyDetail>
+			<genDutyDetail>Implement business request system and data changes</genDutyDetail>
+			<genDutyDetail>Write SQL scripts</genDutyDetail>
 		</genDutyDetails>
 	</experience>
 </experiences>

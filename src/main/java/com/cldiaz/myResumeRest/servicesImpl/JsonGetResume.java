@@ -60,7 +60,7 @@ public class JsonGetResume implements GetResume {
 				}
 			}
 			
-			return new Resume(basic, skill, exp, edu, "default");
+			return new Resume(basic, skill, exp, edu);
 		
 		}catch(Exception ex) {
 			ex.printStackTrace();
