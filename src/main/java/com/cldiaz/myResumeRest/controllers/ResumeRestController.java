@@ -4,23 +4,20 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.models.Resume;
+import com.cldiaz.myResumeRest.servicesImpl.EmailServiceImpl;
 import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
 import com.cldiaz.myResumeRest.servicesImpl.StandardResume;
 import com.cldiaz.myResumeRest.servicesImpl.XmlGetResume;
@@ -40,7 +37,7 @@ public class ResumeRestController {
 	private StandardResume stan;
 	
 	@Autowired
-	private JavaMailSender sender;
+	private EmailServiceImpl sender;
 	
 	private ConfigProperties prop;
 	private Resume res;
@@ -126,23 +123,28 @@ public class ResumeRestController {
 //				.body(new InputStreamResource(bis));
 	}
 	
-	@PostMapping(value="/sendEmail")
-	public String sendEmail() {
-		MimeMessage message = sender.createMimeMessage();
-		MimeMessageHelper helper = new MimeMessageHelper(message);
+	@GetMapping(value="/sendEmail",
+			    params={"email", "name", "company"} )
+	public String sendEmail(@RequestParam("email") String email, 
+							@RequestParam("name") String name,
+							@RequestParam("company") String company
+							) 
+	{
+		
+		System.out.println("email:" + email);
+		System.out.println("name:" + name);
+		System.out.println("email:" + company);
 		
 		try {
-			helper.setTo("help@help.com");
-			helper.setText("testing sending email");
-			helper.setSubject("references");
+			sender.sendReferences(email, name, company);
 			
+			return "email successfully sent";
 		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "Error while sending email";
+			return "issue";
 		}
 		
-		sender.send(message);
-		return "success";
 		
 	}
 	
