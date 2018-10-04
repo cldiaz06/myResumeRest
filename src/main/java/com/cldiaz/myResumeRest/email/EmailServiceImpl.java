@@ -1,4 +1,4 @@
-package com.cldiaz.myResumeRest.servicesImpl;
+package com.cldiaz.myResumeRest.email;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

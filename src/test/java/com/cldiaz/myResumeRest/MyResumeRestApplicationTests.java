@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
+import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
+import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
-import com.cldiaz.myResumeRest.servicesImpl.EmailServiceImpl;
-import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
-import com.cldiaz.myResumeRest.servicesImpl.XmlGetResume;
 
 
 @RunWith(SpringRunner.class)

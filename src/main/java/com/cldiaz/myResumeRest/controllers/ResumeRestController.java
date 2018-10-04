@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldiaz.myResumeRest.config.ConfigProperties;
+import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
+import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
+import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
-import com.cldiaz.myResumeRest.servicesImpl.EmailServiceImpl;
-import com.cldiaz.myResumeRest.servicesImpl.JsonGetResume;
-import com.cldiaz.myResumeRest.servicesImpl.StandardResume;
-import com.cldiaz.myResumeRest.servicesImpl.XmlGetResume;
+import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 import com.itextpdf.text.DocumentException;
 
 @RestController

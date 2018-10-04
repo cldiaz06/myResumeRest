@@ -1,4 +1,4 @@
-package com.cldiaz.myResumeRest.servicesImpl;
+package com.cldiaz.myResumeRest.pdfTemplates;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -315,11 +315,11 @@ public class StandardResume implements PdfResumeGenerator {
 		   table.addCell(blank);
 		   
 		   List list = new List();
-		   list.setListSymbol("\u2022");
-		   list.setIndentationLeft(30);
+		   list.setListSymbol("-");
+		   list.setIndentationLeft(25);
 		   
 		   for(String temp: text) {
-			   list.add(new ListItem(15,temp,Normal_Font));
+			   list.add(new ListItem(13,temp,Normal_Font));
 		   }
 		   
 		   listPhrase.add(list);
