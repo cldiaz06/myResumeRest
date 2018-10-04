@@ -8,12 +8,12 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
+import com.cldiaz.myResumeRest.interfaces.PdfResumeGenerator;
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.models.Skills;
-import com.cldiaz.myResumeRest.services.PdfResumeGenerator;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;

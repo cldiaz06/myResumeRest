@@ -1,4 +1,4 @@
-package com.cldiaz.myResumeRest.services;
+package com.cldiaz.myResumeRest.interfaces;
 
 import com.cldiaz.myResumeRest.models.Resume;
 

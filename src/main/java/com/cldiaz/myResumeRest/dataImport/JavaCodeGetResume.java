@@ -2,12 +2,12 @@ package com.cldiaz.myResumeRest.dataImport;
 
 import java.util.ArrayList;
 
+import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.models.Skills;
-import com.cldiaz.myResumeRest.services.GetResume;
 
 public class JavaCodeGetResume implements GetResume {
 
