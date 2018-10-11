@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring MVC with Thymeleaf</title>
+	<meta charset="ISO-8859-1"/>
+</head>
+<body>
+	<h1>my work experience</h1>
+	<table>
+		<tr th:each="experience: ${experiences}">
+			<td th:text="${experience.startDate}"></td><br>
+			<td th:text="${experience.company}"></td><br>
+			<td>
+				<table>
+					<tr th:each="projDetails: ${experience.projDetails}">
+						<td th:text="${projDetails}"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+</body>
+</html>

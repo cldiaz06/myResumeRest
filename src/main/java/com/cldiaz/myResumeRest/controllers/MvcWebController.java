@@ -50,14 +50,19 @@ public class MvcWebController {
 	
 	@GetMapping("/home")
 	public String viewHome(Model model) {
-		
-		System.out.println(res.toString());
-		
+				
 		model.addAttribute("basicInfo",res.getBasicInfo());
 		
 		return "index";
 	}
 	
-
+	@GetMapping("/exp")
+	public String viewExperience(Model model) {
+		
+		
+		
+		model.addAttribute("experiences", res.getExperience());
+		return "experience";
+	}
 	
 }
