@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring MVC with Thymeleaf</title>
+	<meta charset="ISO-8859-1"/>
+</head>
+<body>
+	<h1>Skills section</h1>
+	<table>
+		<tr th:each="skill: ${skills}">
+			<td th:text="${skill.header}"></td>
+			<td th:text="${skill.detail}"></td>
+		</tr>
+	</table>
+		
+</body>
+</html>

@@ -5,13 +5,18 @@
 	<meta charset="ISO-8859-1"/>
 </head>
 <body>
-	<h1>Get Started with Spring+Thymeleaf</h1>
-	<p th:text="${basicInfo.firstName}"></p>
-	<p th:text="${basicInfo.lastName}"></p>
-	<p th:text="${basicInfo.city}"></p>
-	<p th:text="${basicInfo.state}"></p>
-	<p th:text="${basicInfo.postalcode}"></p>
-
+	<h1>Resume Basic Info</h1>
+	<p th:text="${basicInfo.firstName}">FirstName: </p>
+	<p th:text="${basicInfo.lastName}">LastName: </p>
+	<p th:text="${basicInfo.city}">city: </p>
+	<p th:text="${basicInfo.state}">State: </p>
+	<p th:text="${basicInfo.postalcode}">Postal Code: </p>
+	<p th:text="${basicInfo.title}">Title: </p>
+	<p th:text="${basicInfo.phone}">Phone: </p>
+	<p th:text="${basicInfo.email}">Email: </p>
+	<p th:text="${basicInfo.gitUrl}">Git URL: </p>
+	
+	
 	
 </body>
 </html>

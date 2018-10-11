@@ -18,7 +18,7 @@
 			<appSuppDetail>if issue requires data change, aquire approval to make corrections on database.</appSuppDetail>
 			<appSuppDetail>If root issue requires code change, request is submitted to business and scheduled.</appSuppDetail>
 			<appSuppDetail>For code changes, we build, compile, and deploy to test environment for unit testing.</appSuppDetail>
-			<appSuppDetail>After unit and regression testing, change is promoted to preprod for business validations</appSuppDetail>
+			<appSuppDetail>After unit and regression testing, change is promoted to preprod for business validations.</appSuppDetail>
 			<appSuppDetail>Once business approves, change is included into monthly deployment package.</appSuppDetail>
 			<appSuppDetail>Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris.</appSuppDetail>
 			<appSuppDetail>Recently have started direct support for the Hybris platform.</appSuppDetail>

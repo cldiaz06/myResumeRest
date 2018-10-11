@@ -58,11 +58,25 @@ public class MvcWebController {
 	
 	@GetMapping("/exp")
 	public String viewExperience(Model model) {
-		
-		
-		
+				
 		model.addAttribute("experiences", res.getExperience());
 		return "experience";
 	}
+	
+	@GetMapping("/skills")
+	public String viewSkills(Model model) {
+				
+		model.addAttribute("skills", res.getSkills());
+		return "skills";
+	}
+	
+	@GetMapping("/edu")
+	public String viewEducation(Model model) {
+				
+		model.addAttribute("educations", res.getEducation());
+		return "education";
+	}
+	
+
 	
 }

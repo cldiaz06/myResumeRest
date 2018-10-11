@@ -7,8 +7,27 @@
 	    "company":"Cintas Uniform Corp",
 	    "state": "IL",
 	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
-        "projDetails":["Hybris go Live","Delphi switch to XE5/FireDac", "Cust. Maigration to Hybris"],
-        "appSupDetails":["Triage reported issues to determine root cause","Based on results, make code changes"],
-        "genDutyDetails":["Implement business request system & data changes","Write SQL scripts"]
+        "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
+        	           "Hybris Ecommerce go Live - dur: 1 yr, 2 months", 
+        	           "Migrate Customers to Hybris - ongoing",
+        	           "Substitute old product for new product - dur: 2 months"
+        	          ],
+        "appSupDetails":["Triage reported issues to determine root cause",
+        				  "If issue requires data change, aquire approval to make corrections on database.",
+        				  "If root issue requires code change, request is submitted to business and scheduled.",
+        				  "For code changes, we build, compile, and deploy to test environment for unit testing.",
+        				  "After unit and regression testing, change is promoted to preprod for business validations.",
+        				  "Once business approves, change is included into monthly deployment package.",
+        				  "Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris.",
+        				  "Recently have started direct support for the Hybris platform."
+        				],
+        "genDutyDetails":["Triage reported issues to determine root cause.",
+        				  "Based on those findings, plan out various solutions and report them to business.",
+        				  "Leading to deployment, work with change management on working thru process for deployment signoff.",
+        				  "Coordinate with other system engineers to build and implement solution.",
+        				  "Work with business partners to develop and automate processes to meet requirements.",
+        				  "Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.",
+        				  "If necessary, develop, test and run SQL scripts for various tasks that business cannot complete."
+        				 ]
     }		  
 ]

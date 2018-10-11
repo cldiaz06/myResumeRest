@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring MVC with Thymeleaf</title>
+	<meta charset="ISO-8859-1"/>
+</head>
+<body>
+	<h1>Education</h1>
+	<table>
+		<tr th:each="education:${educations}">
+			<td th:text="${education.startDate}"></td>
+			<td th:text="${education.endDate}"></td>
+			<td th:text="${education.schoolName}"></td>
+			<td th:text="${education.location}"></td>
+			<td th:text="${education.achievement}"></td>
+			
+		</tr>
+	</table>
+</body>
+</html>
