@@ -1,6 +1,9 @@
 package com.cldiaz.myResumeRest.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,7 @@ import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
 import com.cldiaz.myResumeRest.models.Resume;
+import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 
 @Controller
 @RequestMapping("/")
@@ -21,6 +25,9 @@ public class MvcWebController {
 	
 	@Autowired
 	private XmlGetResume xmlGetResume;
+	
+	@Autowired
+	private StandardResume stanResume;
 	
 	private ConfigProperties prop;
 	private Resume res;
@@ -77,6 +84,10 @@ public class MvcWebController {
 		return "education";
 	}
 	
-
+	@GetMapping("/resume")
+	public String getResumePdf(Model model) {
+		model.addAttribute("resume", res);
+		return "resumeView";
+	}
 	
 }
