@@ -10,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
-import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
 
 
@@ -49,14 +48,5 @@ public class MyResumeRestApplicationTests {
 		System.out.println("hash Pass: ");
 		System.out.println(hashedPassword);
 	}
-
-	@Test
-	public void sendEmail() throws MessagingException {
-		EmailServiceImpl email = new EmailServiceImpl();
-		
-		email.sendTextMail("cldiaz06@gmail.com", "Test spring email", "This email was sent from myResumeRest", 
-				           "cldiaz1066.SpringResume@gmail.com", null);
-	}
-	
 	
 }

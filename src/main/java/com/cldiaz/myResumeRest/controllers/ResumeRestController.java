@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
-import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 import com.itextpdf.text.DocumentException;
@@ -35,10 +34,7 @@ public class ResumeRestController {
 	
 	@Autowired
 	private StandardResume stan;
-	
-	@Autowired
-	private EmailServiceImpl sender;
-	
+
 	private ConfigProperties prop;
 	private Resume res;
 	
@@ -109,34 +105,9 @@ public class ResumeRestController {
 		} else {
 			return null;
 		}
-			
-		
-//		ByteArrayInputStream bis = stan.buildResumePdfRest(res);
-		
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.add("Content-Disposition", "inline; filename=resume.pdf");
-//		
-//		return ResponseEntity
-//				.ok()
-//				.headers(headers)
-//				.contentType(MediaType.APPLICATION_PDF)
-//				.body(new InputStreamResource(bis));
+
 	}
 	
-	@GetMapping(value="/sendEmail",
-			    params={"email", "name", "company"} )
-	public String sendEmail(@RequestParam("email") String email, 
-							@RequestParam("name") String name,
-							@RequestParam("company") String company
-							) 
-	{
-		
-		System.out.println("email:" + email);
-		System.out.println("name:" + name);
-		System.out.println("email:" + company);
-		return company;	
-		
-	}
 	
 	
 }

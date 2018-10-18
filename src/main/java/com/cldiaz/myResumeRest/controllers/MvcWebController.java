@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
-import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 
@@ -28,9 +27,6 @@ public class MvcWebController {
 	
 	@Autowired
 	private StandardResume stanResume;
-	
-	@Autowired
-	private EmailServiceImpl email;
 	
 	private ConfigProperties prop;
 	private Resume res;
@@ -99,18 +95,6 @@ public class MvcWebController {
 	public String getResumePdf(Model model) {
 		model.addAttribute("resume", res);
 		return "resumeView";
-	}
-	
-	@GetMapping("/getRefs")
-	public String sendRefsMail() {
-		try {
-			email.sendTextMail("cldiaz06@gmail.com", "Test Boot Email", "First email from myResumeRest", "cldiaz1066.SpringResume@gmail.com", null);
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return "email success";
 	}
 	
 }
