@@ -1,9 +1,8 @@
 package com.cldiaz.myResumeRest.controllers;
 
+import javax.mail.MessagingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
+import com.cldiaz.myResumeRest.email.EmailServiceImpl;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 
@@ -28,6 +28,9 @@ public class MvcWebController {
 	
 	@Autowired
 	private StandardResume stanResume;
+	
+	@Autowired
+	private EmailServiceImpl email;
 	
 	private ConfigProperties prop;
 	private Resume res;
@@ -53,6 +56,14 @@ public class MvcWebController {
 		else {
 			this.res = jsonGetResume.getResume(false);
 		}
+	}
+	
+	@GetMapping("/")
+	public String viewMain(Model model) {
+				
+		model.addAttribute("basicInfo",res.getBasicInfo());
+		
+		return "index";
 	}
 	
 	@GetMapping("/home")
@@ -88,6 +99,18 @@ public class MvcWebController {
 	public String getResumePdf(Model model) {
 		model.addAttribute("resume", res);
 		return "resumeView";
+	}
+	
+	@GetMapping("/getRefs")
+	public String sendRefsMail() {
+		try {
+			email.sendTextMail("cldiaz06@gmail.com", "Test Boot Email", "First email from myResumeRest", "cldiaz1066.SpringResume@gmail.com", null);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "email success";
 	}
 	
 }

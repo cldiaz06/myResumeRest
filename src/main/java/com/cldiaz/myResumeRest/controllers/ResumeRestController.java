@@ -134,17 +134,7 @@ public class ResumeRestController {
 		System.out.println("email:" + email);
 		System.out.println("name:" + name);
 		System.out.println("email:" + company);
-		
-		try {
-			sender.sendReferences(email, name, company);
-			
-			return "email successfully sent";
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return "issue";
-		}
-		
+		return company;	
 		
 	}
 	

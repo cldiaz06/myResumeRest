@@ -5,6 +5,7 @@ import javax.mail.MessagingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
@@ -39,7 +40,23 @@ public class MyResumeRestApplicationTests {
 		System.out.println(res.toString());
 		System.out.println("******End XML****");
 	}
+	
+	@Test
+	public void getHashPassword() {
+		String password = "";
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String hashedPassword = passwordEncoder.encode(password);
+		System.out.println("hash Pass: ");
+		System.out.println(hashedPassword);
+	}
 
+	@Test
+	public void sendEmail() throws MessagingException {
+		EmailServiceImpl email = new EmailServiceImpl();
+		
+		email.sendTextMail("cldiaz06@gmail.com", "Test spring email", "This email was sent from myResumeRest", 
+				           "cldiaz1066.SpringResume@gmail.com", null);
+	}
 	
 	
 }
