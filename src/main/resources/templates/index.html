@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Spring MVC with Thymeleaf</title>
+	<meta charset="ISO-8859-1"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}"/>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Spring Thymeleaf</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<h1>Resume Basic Info</h1>
+	<p th:text="${basicInfo.firstName}">FirstName: </p>
+	<p th:text="${basicInfo.lastName}">LastName: </p>
+	<p th:text="${basicInfo.city}">city: </p>
+	<p th:text="${basicInfo.state}">State: </p>
+	<p th:text="${basicInfo.postalcode}">Postal Code: </p>
+	<p th:text="${basicInfo.title}">Title: </p>
+	<p th:text="${basicInfo.phone}">Phone: </p>
+	<p th:text="${basicInfo.email}">Email: </p>
+	<p th:text="${basicInfo.gitUrl}">Git URL: </p>
+	
+	<script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/popper.js/1.14.3/js/popper.min.js}"></script>
+	<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1-1/js/jquery.min.js}"></script>
+	
+</body>
+</html>
