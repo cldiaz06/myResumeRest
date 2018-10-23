@@ -1,7 +1,5 @@
 package com.cldiaz.myResumeRest;
 
-import javax.mail.MessagingException;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -43,10 +41,12 @@ public class MyResumeRestApplicationTests {
 	@Test
 	public void getHashPassword() {
 		String password = "";
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String hashedPassword = passwordEncoder.encode(password);
-		System.out.println("hash Pass: ");
-		System.out.println(hashedPassword);
+		if (!password.isEmpty()) {
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String hashedPassword = passwordEncoder.encode(password);
+			System.out.println("hash Pass: ");
+			System.out.println(hashedPassword);
+		}
 	}
 	
 }
