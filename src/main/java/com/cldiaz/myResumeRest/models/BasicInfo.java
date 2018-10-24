@@ -12,7 +12,7 @@ public class BasicInfo {
 	private String phone;
 	private String email;
 	private String gitUrl;
-	//private String address;
+	private String summary;
 	
 	public BasicInfo() {}
 
@@ -87,13 +87,24 @@ public class BasicInfo {
 	public void setGit_url(String gitUrl) {
 		this.gitUrl = gitUrl;
 	}
+	
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
 
 	@Override
 	public String toString() {
 		return "BasicInfo [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
 				+ ", postalcode=" + postalcode + ", title=" + title + ", phone=" + phone + ", email=" + email
-				+ ", gitUrl=" + gitUrl + "]";
+				+ ", gitUrl=" + gitUrl + ", summary=" + summary + "]";
 	}
+
+	
 	
 	
 	

@@ -32,7 +32,6 @@ public class PdfView extends AbstractView {
 		stan.buildResumePdf(res, doc, writer);
 		doc.close();
 
-
 	}
 
 }
