@@ -7,6 +7,7 @@ import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
 import com.cldiaz.myResumeRest.models.Resume;
+import com.cldiaz.myResumeRest.models.Skill_Years;
 import com.cldiaz.myResumeRest.models.Skills;
 
 public class JavaCodeGetResume implements GetResume {
@@ -58,7 +59,12 @@ public class JavaCodeGetResume implements GetResume {
 		edu.add(new Education("2002", "2006", "St. Patrick High School", "Chicago, IL", "High School Diploma"));
 		
 		
-		return new Resume(basic, skill, experience, edu);
+		ArrayList<Skill_Years> years = new ArrayList<Skill_Years>();
+		years.add(new Skill_Years("Java", "2.5"));
+		years.add(new Skill_Years("C#", "3"));
+		years.add(new Skill_Years("SQL", "6"));
+		
+		return new Resume(basic, skill, experience, edu, years);
 	}
 
 }

@@ -10,6 +10,7 @@ import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
 import com.cldiaz.myResumeRest.models.Resume;
+import com.cldiaz.myResumeRest.models.Skill_Years;
 import com.cldiaz.myResumeRest.models.Skills;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -26,6 +27,7 @@ public class XmlGetResume implements GetResume {
 			File skillXml = new File(classLoader.getResource("xml/skills.xml").getFile());
 			File educationXml = new File(classLoader.getResource("xml/education.xml").getFile());
 			File experienceXml = new File(classLoader.getResource("xml/experience.xml").getFile());
+			File yearsXml = new File(classLoader.getResource("xml/skill_years.xml").getFile());
 			
 			ObjectMapper mapper = new XmlMapper();
 			
@@ -40,6 +42,8 @@ public class XmlGetResume implements GetResume {
 			List<Education>edu = mapper.readValue(educationXml, 
 					mapper.getTypeFactory().constructCollectionType(List.class, Education.class));
 			
+			List<Skill_Years>years = mapper.readValue(yearsXml, 
+					mapper.getTypeFactory().constructCollectionType(List.class, Skill_Years.class));
 			
 			
 			if (debug) {
@@ -60,9 +64,14 @@ public class XmlGetResume implements GetResume {
 				for(Education temp :edu) {
 					System.out.println(temp.toString());
 				}
+				
+				System.out.println("***Skill years*****");
+				for(Skill_Years temp :years) {
+					System.out.println(temp.toString());
+				}
 			}
 			
-			return new Resume(basic, skill, exp, edu);
+			return new Resume(basic, skill, exp, edu, years);
 			
 		}catch(Exception x) {
 			x.printStackTrace();

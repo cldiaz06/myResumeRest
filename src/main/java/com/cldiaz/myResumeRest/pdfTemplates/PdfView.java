@@ -11,7 +11,6 @@ import org.springframework.web.servlet.view.AbstractView;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
-import com.itextpdf.text.pdf.PdfDocument;
 import com.itextpdf.text.pdf.PdfWriter;
 
 @Component("resumeView")
@@ -22,7 +21,7 @@ public class PdfView extends AbstractView {
 										   HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 			
-		response.setHeader("Content-Disposition", "inline; filename=Resume.pdf");
+		response.setHeader("Content-Disposition", "attachment; filename=Resume.pdf");
 	    Resume res = (Resume) model.get("resume");
 	    StandardResume stan = new StandardResume();
 	    

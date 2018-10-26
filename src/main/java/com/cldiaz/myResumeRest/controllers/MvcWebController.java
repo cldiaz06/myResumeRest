@@ -13,7 +13,6 @@ import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
 import com.cldiaz.myResumeRest.models.Resume;
-import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 
 @Controller
 @RequestMapping("/")
@@ -25,19 +24,8 @@ public class MvcWebController {
 	@Autowired
 	private XmlGetResume xmlGetResume;
 	
-	@Autowired
-	private StandardResume stanResume;
-	
 	private ConfigProperties prop;
 	private Resume res;
-	
-	private String getPropFileType() {
-		return prop.getFileType();
-	}
-	
-	private String getPropTemplate() {
-		return prop.getTemplate();
-	}
 	
 	@Autowired
 	public void setGlobalProperties(ConfigProperties prop) {
@@ -89,6 +77,13 @@ public class MvcWebController {
 				
 		model.addAttribute("educations", res.getEducation());
 		return "education";
+	}
+	
+	@GetMapping("/years")
+	public String viewSkillYears(Model model) {
+				
+		model.addAttribute("skill_years", res.getYears());
+		return "skillYears";
 	}
 	
 	@GetMapping("/resume")
