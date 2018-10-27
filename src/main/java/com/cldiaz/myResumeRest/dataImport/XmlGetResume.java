@@ -15,7 +15,7 @@ import com.cldiaz.myResumeRest.models.Skills;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-@Service
+@Service("xmlGetResume")
 public class XmlGetResume implements GetResume {
 
 	@Override

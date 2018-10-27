@@ -14,7 +14,7 @@ import com.cldiaz.myResumeRest.models.Skill_Years;
 import com.cldiaz.myResumeRest.models.Skills;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Service
+@Service("jsonGetResume")
 public class JsonGetResume implements GetResume {
 	
 	@Override
