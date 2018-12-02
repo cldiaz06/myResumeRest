@@ -10,7 +10,8 @@
         "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
         	           "Hybris Ecommerce go Live - dur: 1 yr, 2 months", 
         	           "Migrate Customers to Hybris - ongoing",
-        	           "Substitute old product for new product - dur: 2 months"
+        	           "Auto Substitute old product for new product - dur: 2 months",
+        	           "Order Issue Rpt w/ release funct. - current"
         	          ],
         "appSupDetails":["Triage reported issues to determine root cause",
         				  "If issue requires data change, aquire approval to make corrections on database.",

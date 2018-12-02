@@ -5,11 +5,11 @@
 				"detail":"TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"
 			  },
 			  {
-				 "header" : "Backend Frameworks",
+				 "header" : "Backend Fk",
 				 "detail" : "Spring MVC & Boot, ASP.net 4.0: MVC, Web Forms & Entity"
 			  },
 			  {
-				  "header" : "Frontend Frameworks",
+				  "header" : "Frontend Fk",
 				  "detail" : "Bootstrap 4, Angular JS 3.0, ZK, React"
 			  },
 			  {

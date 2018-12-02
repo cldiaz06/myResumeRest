@@ -34,13 +34,19 @@ public class MvcWebController {
 	}
 	
 	@GetMapping("/")
-	public String viewMain(Model model) {
-		
-		model.addAttribute("basicInfo",res.getBasicInfo());
-		
+	public String viewIndex(Model model) {
+		model.addAttribute("resume", res);
 		return "index";
 	}
 	
+//	@GetMapping("/")
+//	public String viewMain(Model model) {
+//		
+//		model.addAttribute("basicInfo",res.getBasicInfo());
+//		
+//		return "index";
+//	}
+//	
 	@GetMapping("/home")
 	public String viewHome(Model model) {
 			
