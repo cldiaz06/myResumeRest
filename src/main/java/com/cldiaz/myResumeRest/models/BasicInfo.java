@@ -32,6 +32,7 @@ public class BasicInfo {
 		this.lastName = lastName;
 	}
 
+
 	public String getCity() {
 		return city;
 	}
@@ -104,7 +105,6 @@ public class BasicInfo {
 				+ ", gitUrl=" + gitUrl + ", summary=" + summary + "]";
 	}
 
-	
 	
 	
 	

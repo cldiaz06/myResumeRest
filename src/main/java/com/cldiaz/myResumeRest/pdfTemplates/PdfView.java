@@ -21,7 +21,7 @@ public class PdfView extends AbstractView {
 										   HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 			
-		response.setHeader("Content-Disposition", "attachment; filename=Resume.pdf");
+		response.setHeader("Content-Disposition", "inline; filename=Resume.pdf");
 	    Resume res = (Resume) model.get("resume");
 	    StandardResume stan = new StandardResume();
 	    
