@@ -13,6 +13,7 @@ public class BasicInfo {
 	private String email;
 	private String gitUrl;
 	private String summary;
+	private String linkedin;
 	
 	public BasicInfo() {}
 
@@ -98,11 +99,19 @@ public class BasicInfo {
 		this.summary = summary;
 	}
 
+	public String getLinkedin() {
+		return linkedin;
+	}
+
+	public void setLinkedin(String linkedin) {
+		this.linkedin = linkedin;
+	}
+
 	@Override
 	public String toString() {
 		return "BasicInfo [firstName=" + firstName + ", lastName=" + lastName + ", city=" + city + ", state=" + state
 				+ ", postalcode=" + postalcode + ", title=" + title + ", phone=" + phone + ", email=" + email
-				+ ", gitUrl=" + gitUrl + ", summary=" + summary + "]";
+				+ ", gitUrl=" + gitUrl + ", summary=" + summary + ", linkedin=" + linkedin + "]";
 	}
 
 	

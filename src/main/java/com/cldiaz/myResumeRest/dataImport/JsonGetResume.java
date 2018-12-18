@@ -9,6 +9,7 @@ import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
+import com.cldiaz.myResumeRest.models.Interests;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.models.Skill_Years;
 import com.cldiaz.myResumeRest.models.Skills;
@@ -28,7 +29,7 @@ public class JsonGetResume implements GetResume {
 			File educationJson = new File(classLoader.getResource("json/education.json").getFile());
 			File experienceJson = new File(classLoader.getResource("json/experience.json").getFile());
 			File yearsJson = new File(classLoader.getResource("json/skill_years.json").getFile());
-			
+			File interestJson = new File(classLoader.getResource("json/interests.json").getFile());
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
@@ -45,7 +46,11 @@ public class JsonGetResume implements GetResume {
 			
 			List<Skill_Years> years = mapper.readValue(yearsJson, 
 					mapper.getTypeFactory().constructCollectionType(List.class, Skill_Years.class));
-					
+			
+			List<Interests> inter = mapper.readValue(interestJson, 
+					mapper.getTypeFactory().constructCollectionType(List.class, Interests.class));
+			
+			
 			if (debug) {
 				System.out.println("***Basicinfo*****");
 				System.out.println(basic.toString());
@@ -69,9 +74,14 @@ public class JsonGetResume implements GetResume {
 				for(Skill_Years temp :years) {
 					System.out.println(temp.toString());
 				}
+				
+				System.out.println("***interests*****");
+				for(Interests temp :inter) {
+					System.out.println(temp.toString());
+				}
 			}
 			
-			return new Resume(basic, skill, exp, edu, years);
+			return new Resume(basic, skill, exp, edu, years, inter);
 		
 		}catch(Exception ex) {
 			ex.printStackTrace();

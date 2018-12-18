@@ -10,25 +10,29 @@ public class Resume {
 	private ArrayList<Experience> experience = new ArrayList<Experience>();
 	private ArrayList<Education> education = new ArrayList<Education>();
 	private ArrayList<Skill_Years> years = new ArrayList<Skill_Years>();
+	private ArrayList<Interests> inter = new ArrayList<Interests>();
 	
 	public Resume() {}
 
 	public Resume(BasicInfo basicInfo, ArrayList<Skills> skills, ArrayList<Experience> experience,
-			ArrayList<Education> education, ArrayList<Skill_Years> years) {
+			ArrayList<Education> education, ArrayList<Skill_Years> years, ArrayList<Interests> inter) {
 		super();
 		this.basicInfo = basicInfo;
 		this.skills = skills;
 		this.experience = experience;
 		this.education = education;
 		this.years = years;
+		this.inter = inter;
 	}
 
-	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, List<Education> edu, List<Skill_Years> years) {
+	public Resume(BasicInfo basic, List<Skills> skill, List<Experience> exp, 
+			List<Education> edu, List<Skill_Years> years,List<Interests> inter) {
 		this.basicInfo = basic;
 		this.skills = (ArrayList<Skills>) skill;
 		this.experience = (ArrayList<Experience>) exp;
 		this.education = (ArrayList<Education>) edu;
 		this.years = (ArrayList<Skill_Years>) years;
+		this.inter = (ArrayList<Interests>) inter;
 	}
 
 	public BasicInfo getBasicInfo() {
@@ -71,14 +75,21 @@ public class Resume {
 		this.years = years;
 	}
 
+	public ArrayList<Interests> getInter() {
+		return inter;
+	}
+
+	public void setInter(ArrayList<Interests> inter) {
+		this.inter = inter;
+	}
+
 	@Override
 	public String toString() {
 		return "Resume [basicInfo=" + basicInfo + ", skills=" + skills + ", experience=" + experience + ", education="
-				+ education + ", years=" + years + "]";
+				+ education + ", years=" + years + ", inter=" + inter + "]";
 	}
 
 	
-
 	
 	
 	

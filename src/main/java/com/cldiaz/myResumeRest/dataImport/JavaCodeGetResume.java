@@ -6,6 +6,7 @@ import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.BasicInfo;
 import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Experience;
+import com.cldiaz.myResumeRest.models.Interests;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.cldiaz.myResumeRest.models.Skill_Years;
 import com.cldiaz.myResumeRest.models.Skills;
@@ -64,7 +65,9 @@ public class JavaCodeGetResume implements GetResume {
 		years.add(new Skill_Years("C#", "3"));
 		years.add(new Skill_Years("SQL", "6"));
 		
-		return new Resume(basic, skill, experience, edu, years);
+		ArrayList<Interests> inter = new ArrayList<Interests>();
+		
+		return new Resume(basic, skill, experience, edu, years, inter);
 	}
 
 }

@@ -52,9 +52,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#interests">Interests</a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
-          </li>
+          </li>--->
         </ul>
       </div>
     </nav>
@@ -73,13 +73,13 @@
           </div>
           <p class="lead mb-5" th:text="${resume.basicInfo.summary}"></p>
           <div class="social-icons">
-            <a href="#">
+            <a th:href=${resume.basicInfo.linkedin}>
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="#">
+            <a th:href="${resume.basicInfo.gitUrl}">
               <i class="fab fa-gitlab"></i>
             </a>
-            <a href="#">
+            <a href="/resume" target="/resume">
               <i class="fas fa-file-pdf"></i>
             </a>
           </div>
@@ -96,7 +96,17 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0" th:text="${exp.title}"></h3>
               <div class="subheading mb-3" th:text="${exp.company}"></div>
-              <p th:text="${exp.summary}"></p>
+              <p th:text="${exp.summary}"></p>	
+              <ul class="list-inline" th:each="genDetails: ${exp.genDutyDetails}">
+              	<li>
+               		 <i th:text="${genDetails}"></i>
+              	</li>
+              </ul>
+              <ul class="list-inline" th:each="proj: ${exp.projDetails}">
+              	<li>
+               		 <i th:text="${proj}"></i>
+              	</li>
+              </ul>
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary" th:text="${exp.startDate} + '-' + ${exp.endDate}"></span>
@@ -148,15 +158,17 @@
       <hr class="m-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="interests">
-        <div class="my-auto">
-          <h2 class="mb-5">Interests</h2>
-          <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
+        <h2 class="mb-5">Interests</h2>
+        <div  th:each="inter :${resume.inter}"> 
+          <p th:text="${inter.detail}"></p>
+          <!--  <p>Apart from being a web developer, I enjoy most of my time being outdoors. In the winter, I am an avid skier and novice ice climber. During the warmer months here in Colorado, I enjoy mountain biking, free climbing, and kayaking.</p>
           <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring chef, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+          -->
         </div>
       </section>
 
       <hr class="m-0">
-
+	<!-- 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
         <div class="my-auto">
           <h2 class="mb-5">Awards &amp; Certifications</h2>
@@ -189,7 +201,7 @@
               Place - James Buchanan High School - Hackathon 2005</li>
           </ul>
         </div>
-      </section>
+      </section> -->
 
     </div>
 
