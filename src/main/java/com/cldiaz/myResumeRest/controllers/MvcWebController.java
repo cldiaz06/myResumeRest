@@ -1,5 +1,9 @@
 package com.cldiaz.myResumeRest.controllers;
 
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -39,14 +43,18 @@ public class MvcWebController {
 		return "index";
 	}
 	
-//	@GetMapping("/")
-//	public String viewMain(Model model) {
-//		
-//		model.addAttribute("basicInfo",res.getBasicInfo());
-//		
-//		return "index";
-//	}
-//	
+	@GetMapping("/linkedin")
+	public void redirectLinkedin(HttpServletResponse httpServletResponse) throws IOException{
+		System.out.println("Redirect to linkedin");
+		httpServletResponse.sendRedirect(res.getBasicInfo().getLinkedin());
+	}
+	
+	@GetMapping("/gitlab")
+	public void redirectGitLab(HttpServletResponse httpServletResponse) throws IOException{
+		System.out.println("Redirect to linkedin");
+		httpServletResponse.sendRedirect(res.getBasicInfo().getGitUrl());
+	}
+	
 	@GetMapping("/home")
 	public String viewHome(Model model) {
 			

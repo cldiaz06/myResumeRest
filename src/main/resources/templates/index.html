@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Spring Build Resume</title>
+    <title>Spring Mvc + Thymeleaf Resume Website</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/webjars/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Clarence Taylor</span>
+        <span class="d-block d-lg-none" th:text="${resume.basicInfo.firstName}"></span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
         </span>
@@ -73,10 +73,10 @@
           </div>
           <p class="lead mb-5" th:text="${resume.basicInfo.summary}"></p>
           <div class="social-icons">
-            <a th:href=${resume.basicInfo.linkedin}>
+            <a href="/linkedin" target="/linkedin">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a th:href="${resume.basicInfo.gitUrl}">
+            <a href="/gitlab" target="/gitlab">
               <i class="fab fa-gitlab"></i>
             </a>
             <a href="/resume" target="/resume">
@@ -97,15 +97,9 @@
               <h3 class="mb-0" th:text="${exp.title}"></h3>
               <div class="subheading mb-3" th:text="${exp.company}"></div>
               <p th:text="${exp.summary}"></p>	
-              <ul class="list-inline" th:each="genDetails: ${exp.genDutyDetails}">
-              	<li>
-               		 <i th:text="${genDetails}"></i>
-              	</li>
-              </ul>
+              <h5>Projects</h5>
               <ul class="list-inline" th:each="proj: ${exp.projDetails}">
-              	<li>
-               		 <i th:text="${proj}"></i>
-              	</li>
+              	<li><i th:text="${proj}"></i></li>
               </ul>
             </div>
             <div class="resume-date text-md-right">
@@ -145,7 +139,7 @@
           <h2 class="mb-5">Skills</h2>
     
         <div th:each="skill :${resume.skills}">
-            <div class="subheading mb-3" th:text="${skill.header}"></div>
+            <div class="subheading mb-3" th:text="${skill.header}"><span th:text="${skill.detail}"></span></div>
             <ul class="list-inline">
               <li>
                 <i th:text="${skill.detail}"></i>
