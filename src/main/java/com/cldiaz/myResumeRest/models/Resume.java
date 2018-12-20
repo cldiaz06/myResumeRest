@@ -3,6 +3,13 @@ package com.cldiaz.myResumeRest.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@ToString
 public class Resume {
 
 	private BasicInfo basicInfo = new BasicInfo();
@@ -34,60 +41,60 @@ public class Resume {
 		this.years = (ArrayList<Skill_Years>) years;
 		this.inter = (ArrayList<Interests>) inter;
 	}
-
-	public BasicInfo getBasicInfo() {
-		return basicInfo;
-	}
-
-	public void setBasicInfo(BasicInfo basicInfo) {
-		this.basicInfo = basicInfo;
-	}
-
-	public ArrayList<Skills> getSkills() {
-		return skills;
-	}
-
-	public void setSkills(ArrayList<Skills> skills) {
-		this.skills = skills;
-	}
-
-	public ArrayList<Experience> getExperience() {
-		return experience;
-	}
-
-	public void setExperience(ArrayList<Experience> experience) {
-		this.experience = experience;
-	}
-
-	public ArrayList<Education> getEducation() {
-		return education;
-	}
-
-	public void setEducation(ArrayList<Education> education) {
-		this.education = education;
-	}
-
-	public ArrayList<Skill_Years> getYears() {
-		return years;
-	}
-
-	public void setYears(ArrayList<Skill_Years> years) {
-		this.years = years;
-	}
-
-	public ArrayList<Interests> getInter() {
-		return inter;
-	}
-
-	public void setInter(ArrayList<Interests> inter) {
-		this.inter = inter;
-	}
-
-	@Override
-	public String toString() {
-		return "Resume [basicInfo=" + basicInfo + ", skills=" + skills + ", experience=" + experience + ", education="
-				+ education + ", years=" + years + ", inter=" + inter + "]";
-	}
+//
+//	public BasicInfo getBasicInfo() {
+//		return basicInfo;
+//	}
+//
+//	public void setBasicInfo(BasicInfo basicInfo) {
+//		this.basicInfo = basicInfo;
+//	}
+//
+//	public ArrayList<Skills> getSkills() {
+//		return skills;
+//	}
+//
+//	public void setSkills(ArrayList<Skills> skills) {
+//		this.skills = skills;
+//	}
+//
+//	public ArrayList<Experience> getExperience() {
+//		return experience;
+//	}
+//
+//	public void setExperience(ArrayList<Experience> experience) {
+//		this.experience = experience;
+//	}
+//
+//	public ArrayList<Education> getEducation() {
+//		return education;
+//	}
+//
+//	public void setEducation(ArrayList<Education> education) {
+//		this.education = education;
+//	}
+//
+//	public ArrayList<Skill_Years> getYears() {
+//		return years;
+//	}
+//
+//	public void setYears(ArrayList<Skill_Years> years) {
+//		this.years = years;
+//	}
+//
+//	public ArrayList<Interests> getInter() {
+//		return inter;
+//	}
+//
+//	public void setInter(ArrayList<Interests> inter) {
+//		this.inter = inter;
+//	}
+//
+//	@Override
+//	public String toString() {
+//		return "Resume [basicInfo=" + basicInfo + ", skills=" + skills + ", experience=" + experience + ", education="
+//				+ education + ", years=" + years + ", inter=" + inter + "]";
+//	}
 
 	
 	
