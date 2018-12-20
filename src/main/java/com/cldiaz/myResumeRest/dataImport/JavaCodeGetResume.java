@@ -23,7 +23,7 @@ public class JavaCodeGetResume implements GetResume {
 		basic.setPostalcode("60301");
 		basic.setPhone("773-732-4404");
 		basic.setEmail("cldiaz1066@yahoo.com");
-		basic.setGit_url("git@gitlab.com");
+		basic.setGitUrl("git@gitlab.com");
 		
 		ArrayList<Skills> skill = new ArrayList<>();
 		skill.add(new Skills("Languages: ", "TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"));
