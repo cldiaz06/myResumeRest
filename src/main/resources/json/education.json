@@ -1,24 +1,46 @@
 [		 
-	 		  {
-	 			"startDate" : "2016",
-				"endDate" : "Current",
-				"schoolName" : "Udemy Online training courses",
+	 		  
+			
+	  {
+			"startDate" : "2006",
+			"endDate" : "2012",
+			"schoolName" : "Illinois State University",
+			"location" : "Normal, IL",
+			"achievement" : "Bachelor of Science: Computer Systems Technology"
+		  },
+		  {
+			"startDate" : "2002",
+			"endDate" : "2006",
+			"schoolName" : "St.Patrick High School",
+			"location" : "Chicago, IL",
+			"achievement" : "Diploma"
+		  },
+			 {
+		 			"startDate" : "2016",
+					"endDate" : "Current",
+					"schoolName" : "Udemy: Spring & Hibernate for beginners by Chad Darby",
+					"location" : "Chicago, IL",
+					"achievement" : "Completed Spring MVC, & Boot aspects of the course"
+		 	},
+		 	 {
+		 			"startDate" : "2017",
+					"endDate" : "Current",
+					"schoolName" : "Udemy: React vs Angular vs Vue by Example by Gary Simon",
+					"location" : "Chicago, IL",
+					"achievement" : "Completed Vue app, while React and Angular in progess"
+		 	 }, 
+		 	  	 {
+		 			"startDate" : "2018",
+					"endDate" : "Current",
+					"schoolName" : "Udemy: Angular & nodeJS - Mean stack by Max Schwarzmuller",
+					"location" : "Chicago, IL",
+					"achievement" : "Completed posting app to run with reactive dom."
+		 	 },
+			 	{
+ 				"startDate" : "2019",
+ 				"endDate" : "Current",
+				"schoolName" : "Udemy: Python Data Science and Learing Mach by Jose Portilla",
 				"location" : "Chicago, IL",
-				"achievement" : "Completed projects pushed to gitlab repository"
-	 		  },
-			  {
-				"startDate" : "2006",
-				"endDate" : "2012",
-				"schoolName" : "Illinois State University",
-				"location" : "Normal, IL",
-				"achievement" : "Bachelor of Science: Computer Systems Technology"
-			  },
-			  {
-				"startDate" : "2002",
-				"endDate" : "2006",
-				"schoolName" : "St.Patrick High School",
-				"location" : "Chicago, IL",
-				"achievement" : "Diploma"
-			  }
-			  
+				"achievement" : "Work in progress"
+			}
 ]

@@ -38,6 +38,7 @@ public class StandardResume implements PdfResumeGenerator {
 	private final static Font Normal_Font = new Font(Font.FontFamily.TIMES_ROMAN,11, Font.NORMAL);
 	private final static Font Name_Header = new Font(Font.FontFamily.TIMES_ROMAN,28, Font.ITALIC);
 	private final static Font Title_Header = new Font(Font.FontFamily.TIMES_ROMAN, 20, Font.ITALIC);
+	private final static Font Ref = new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC);
 	private final static Font Normal_Italic = new Font(Font.FontFamily.TIMES_ROMAN, 11, Font.ITALIC);
 	
 	public StandardResume() {}
@@ -74,6 +75,8 @@ public class StandardResume implements PdfResumeGenerator {
 		drawRedLine(document, "Education", writer);
 		
 		addEducation(document, resume.getEducation());
+		
+		addReference(document, writer);
 		
 		System.out.println("PDF file Created:" + today);
 	}
@@ -113,7 +116,7 @@ public class StandardResume implements PdfResumeGenerator {
 		
 		rightTable.addElement(rightHeader);
 		mainHeader.addCell(rightTable);
-		mainHeader.setSpacingAfter(40f);
+		mainHeader.setSpacingAfter(30f);
 		
 		document.add(mainHeader);
 
@@ -203,7 +206,7 @@ public class StandardResume implements PdfResumeGenerator {
 			   eduSet.addCell(detailCell);
 		}
 		
-		eduSet.setSpacingAfter(10f);
+		eduSet.setSpacingAfter(30f);
 		document.add(eduSet);
 	}
 	
@@ -330,5 +333,36 @@ public class StandardResume implements PdfResumeGenerator {
 		   table.addCell(listCell);
 	}
 	
+	public static void addReference(Document document,  PdfWriter writer) throws DocumentException {
+		 
+		  PdfPCell cellText = getCell("References avail. upon request",Ref);
+		  cellText.setHorizontalAlignment(Element.ALIGN_LEFT);
+		  cellText.setVerticalAlignment(Element.ALIGN_TOP);
+		  cellText.setBorder(0);
+	
+		  PdfTemplate template = writer.getDirectContent().createTemplate(100, 5);
+		  template.setColorFill(BaseColor.RED);
+		  template.rectangle(0,0,100,5);
+		  template.fill();	  
+		  try {
+			writer.releaseTemplate(template);
+		  } catch (IOException e) {
+			e.printStackTrace();
+		  }
+		  
+		  PdfPCell line = new PdfPCell(Image.getInstance(template));
+		  line.setBorder(0);  
+		  line.setVerticalAlignment(Element.ALIGN_MIDDLE);
+		  
+		  PdfPTable table = new PdfPTable(2);
+		  table.setWidths(new float[] {2,4});
+		  table.setWidthPercentage(60f);
+		  table.setHorizontalAlignment(Element.ALIGN_LEFT);
+		  table.setSpacingAfter(10f);
+		  table.addCell(line);
+		  table.addCell(cellText);
+		  
+		  document.add(table);	   
+	  }
 
 }

@@ -8,10 +8,11 @@
 	    "state": "IL",
 	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
         "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
-        	           "Hybris Ecommerce go Live - dur: 1 yr, 2 months", 
+        	           "Hybris (Spring Mvc v4.0) Ecommerce go Live - dur: 1 yr, 2 months", 
         	           "Migrate Customers to Hybris - ongoing",
-        	           "Auto Substitute old product for new product - dur: 2 months",
-        	           "Order Issue Rpt w/ release funct. - current"
+        	           "Order Issue Rpt w/ release funct. - 2 months",
+        	           "Add new fields to Hybris reporting, which required .net, sql, and java changes - 2 months",
+        	           "Added custom controls to Hybris, with required .net, sql, & delphi changes - 1 month"
         	          ],
         "appSupDetails":["Triage reported issues to determine root cause",
         				  "If issue requires data change, aquire approval to make corrections on database.",

@@ -5,12 +5,12 @@
 				"detail":"TSql, Delphi, Java, C#, Python, ASP,Html, Javascript, XML, JSON"
 			  },
 			  {
-				 "header" : "Backend Fk",
-				 "detail" : "Spring MVC & Boot, ASP.net 4.0: MVC, Web Forms & Entity"
+				 "header" : "Backend (Yr)",
+				 "detail" : "SQL (5), ASP.net 4.0: MVC, Web Forms & Entity(3) ,Spring MVC & Boot(2)"
 			  },
 			  {
-				  "header" : "Frontend Fk",
-				  "detail" : "Bootstrap 4, Angular JS 3.0, ZK, React"
+				  "header" : "Frontend (Yr)",
+				  "detail" : "Bootstrap 4 (.5), Angular JS (1), ZK (.5), React (.5), Vue (.5)"
 			  },
 			  {
 				  "header" : "OS",
@@ -22,11 +22,11 @@
 			  },
 			  {
 				  "header" : "Workstation",
-				  "detail" : "MsSQL 2008R2/2012, Tomcat, MySQL, Hybris, IBM AS400, VirtualBox, Postman, Beyond Compare"
+				  "detail" : "MsSQL Mgmt Studio 2008R2/2012, MySQL, Hybris, IBM AS400, VirtualBox, Postman, Beyond Compare, SoapUI, Mongo Compass"
 			  },
 			  {
 				  "header" : "Apps/Services",
-				  "detail" : "Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5, Atom"
+				  "detail" : "Visual Studio 2008/17, Eclipse Mars/Oxygen, Visual Studio Code, Notepad++, Delphi XE5, Atom, Anaconda, Intellij IDEA, Tomcat"
 			  },
 			  {
 				  "header" : "Hardware",
