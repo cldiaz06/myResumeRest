@@ -63,33 +63,33 @@ public class MvcWebController {
 		return "index";
 	}
 	
-	@GetMapping("/exp")
-	public String viewExperience(Model model) {
-				
-		model.addAttribute("experiences", res.getExperience());
-		return "experience";
-	}
-	
-	@GetMapping("/skills")
-	public String viewSkills(Model model) {
-				
-		model.addAttribute("skills", res.getSkills());
-		return "skills";
-	}
-	
-	@GetMapping("/edu")
-	public String viewEducation(Model model) {
-				
-		model.addAttribute("educations", res.getEducation());
-		return "education";
-	}
-	
-	@GetMapping("/years")
-	public String viewSkillYears(Model model) {
-				
-		model.addAttribute("skill_years", res.getYears());
-		return "skillYears";
-	}
+//	@GetMapping("/exp")
+//	public String viewExperience(Model model) {
+//				
+//		model.addAttribute("experiences", res.getExperience());
+//		return "experience";
+//	}
+//	
+//	@GetMapping("/skills")
+//	public String viewSkills(Model model) {
+//				
+//		model.addAttribute("skills", res.getSkills());
+//		return "skills";
+//	}
+//	
+//	@GetMapping("/edu")
+//	public String viewEducation(Model model) {
+//				
+//		model.addAttribute("educations", res.getEducation());
+//		return "education";
+//	}
+//	
+//	@GetMapping("/years")
+//	public String viewSkillYears(Model model) {
+//				
+//		model.addAttribute("skill_years", res.getYears());
+//		return "skillYears";
+//	}
 	
 	@GetMapping("/resume")
 	public String getResumePdf(Model model) {
