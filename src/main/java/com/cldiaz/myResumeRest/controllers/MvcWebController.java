@@ -51,7 +51,7 @@ public class MvcWebController {
 	
 	@GetMapping("/gitlab")
 	public void redirectGitLab(HttpServletResponse httpServletResponse) throws IOException{
-		System.out.println("Redirect to linkedin");
+		System.out.println("Redirect to gitlab");
 		httpServletResponse.sendRedirect(res.getBasicInfo().getGitUrl());
 	}
 	

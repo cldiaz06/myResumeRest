@@ -20,8 +20,7 @@
         				  "For code changes, we build, compile, and deploy to test environment for unit testing.",
         				  "After unit and regression testing, change is promoted to preprod for business validations.",
         				  "Once business approves, change is included into monthly deployment package.",
-        				  "Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris.",
-        				  "Recently have started direct support for the Hybris platform."
+        				  "Supported apps include desktop Delphi based, .Net 4.0 services, MsSQL 2008 R2 DB, and Hybris."
         				],
         "genDutyDetails":["Triage reported issues to determine root cause.",
         				  "Based on those findings, plan out various solutions and report them to business.",
@@ -31,5 +30,23 @@
         				  "Work with senior engineer to ensure deployment folder is prepared, with includes backing up changes.",
         				  "If necessary, develop, test and run SQL scripts for various tasks that business cannot complete."
         				 ]
+    },{
+        "startDate":"2017",
+        "endDate":"Current",
+        "title":"Full Stack Engineer",
+        "city": " Oak Park",
+        "company": " Self-Training",
+        "state": " IL",
+        "summary":" Personal projects for learning, and improving development skills.",
+        "projDetails":[" myResumeRest - Spring MVC and Boot application with PDF Generator - dur: 2 months",
+                        " web-stock-quote - Spring Webflux demo - dur: 1 month", 
+                       " MeanStack_intro - MEAN stack posting app - dur: 4 months",
+                       " ResumeGenerator - Java 8 based app as part of myResumeRest project - dur: 4 months",
+                       " Hamburger_builder_app - React based app -  dur: Current" 
+                      ],
+        "appSupDetails":["myResumeRest - next step is add security and support  for the Rest fuctionality.",
+                        "As well, as add myResumeRest to either Docker/Kubernete container, and host in cloud"
+                        ],
+        "genDutyDetails":["Continuously improving upon and add new skills in regards to Software Development."]
     }		  
 ]

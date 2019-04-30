@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.cldiaz.myResumeRest.interfaces.PdfResumeGenerator;
@@ -77,6 +76,8 @@ public class StandardResume implements PdfResumeGenerator {
 		addEducation(document, resume.getEducation());
 		
 		addReference(document, writer);
+		
+		
 		
 		System.out.println("PDF file Created:" + today);
 	}
@@ -150,8 +151,9 @@ public class StandardResume implements PdfResumeGenerator {
 		PdfPTable experienceSet = new PdfPTable(2);
 		experienceSet.setTotalWidth(new float[] {33,100});
 		experienceSet.setHorizontalAlignment(Element.ALIGN_LEFT);
-		   
+		
 		for(Experience temp: experience) {
+			   			
 			   PdfPCell skillHeader = getHeader(temp.getStartDate() + " - " + temp.getEndDate(),Normal_Font);
 			   String expHeader = new String();
 			   expHeader = temp.getTitle() + ',' + temp.getCompany() + "," + temp.getCity() + "," + temp.getState();
@@ -160,17 +162,17 @@ public class StandardResume implements PdfResumeGenerator {
 			   addEmptyLine(document,1);
 			   experienceSet.addCell(skillHeader);
 			   experienceSet.addCell(skillDetail);
-			   PdfPCell blank = getCell(null, null);//new PdfPCell();
 			   
 			   ArrayList<String> gen = temp.getGenDutyDetails();
 			   ArrayList<String> pro = temp.getProjDetails();
 			   ArrayList<String> app = temp.getAppSupDetails();
 			   
-			   createList(experienceSet, gen, "General Duties");
-			   createList(experienceSet, pro, "Projects");
-			   createList(experienceSet, app, "App. Support:");
-			   
+			   createList(experienceSet, gen, "General Duties", false);
+			   createList(experienceSet, pro, "Projects", false);
+			   createList(experienceSet, app, "App. Support:", true);
+
 		}
+		
 		experienceSet.setSpacingAfter(30f);
 		document.add(experienceSet); 
 
@@ -293,13 +295,14 @@ public class StandardResume implements PdfResumeGenerator {
 		   return newCell;
 	   }
 	   
-	public static void createList(PdfPTable table, ArrayList<String> text, String Header) {
+	public static void createList(PdfPTable table, ArrayList<String> text, String Header, boolean addBlankLine) {
 		   
 		   //Font font = new Font(FontFamily.HELVETICA, 12);
 		   PdfPCell blank = new PdfPCell();
 		   Phrase listPhrase = new Phrase();
 		   listPhrase.setFont(Normal_Font);
 		   blank.setBorder(0);
+		   blank.setFixedHeight(10f);
 		   
 		   table.addCell(blank);
 		   
@@ -331,6 +334,13 @@ public class StandardResume implements PdfResumeGenerator {
 		   listCell.setBorder(0);
 		   listCell.addElement(listPhrase);
 		   table.addCell(listCell);
+		   
+		   if(addBlankLine	) {
+			   table.addCell(blank);
+			   table.addCell(blank);
+			   table.addCell(blank);
+			   table.addCell(blank);
+		   }
 	}
 	
 	public static void addReference(Document document,  PdfWriter writer) throws DocumentException {
