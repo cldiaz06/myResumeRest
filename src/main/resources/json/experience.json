@@ -8,7 +8,7 @@
 	    "state": "IL",
 	    "summary":"Direct Sale and Rent Business goods such as Uniforms & floor mats",
         "projDetails":["Delphi switch to XE5/FireDac - dur:4 months",
-        	           "Hybris (Spring Mvc v4.0) Ecommerce go Live - dur: 1 yr, 2 months", 
+        	           "Hybris (Java/Spring Mvc v4.0) Ecommerce go Live - dur: 1 yr, 2 months", 
         	           "Migrate Customers to Hybris - ongoing",
         	           "Order Issue Rpt w/ release funct. - 2 months",
         	           "Add new fields to Hybris reporting, which required .net, sql, and java changes - 2 months",
@@ -39,7 +39,7 @@
         "state": " IL",
         "summary":" Personal projects for learning, and improving development skills.",
         "projDetails":[" myResumeRest - Spring MVC and Boot application with PDF Generator - dur: 2 months",
-                        " web-stock-quote - Spring Webflux demo - dur: 1 month", 
+                       " web-stock-quote - Spring Webflux demo - dur: 1 month", 
                        " MeanStack_intro - MEAN stack posting app - dur: 4 months",
                        " ResumeGenerator - Java 8 based app as part of myResumeRest project - dur: 4 months",
                        " Hamburger_builder_app - React based app -  dur: Current" 

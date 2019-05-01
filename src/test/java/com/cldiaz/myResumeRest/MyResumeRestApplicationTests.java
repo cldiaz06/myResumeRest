@@ -38,15 +38,4 @@ public class MyResumeRestApplicationTests {
 		System.out.println("******End XML****");
 	}
 	
-//	@Test
-//	public void getHashPassword() {
-////		String password = "";
-////		if (!password.isEmpty()) {
-////			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-////			String hashedPassword = passwordEncoder.encode(password);
-////			System.out.println("hash Pass: ");
-////			System.out.println(hashedPassword);
-//		}
-//	}
-	
 }
