@@ -29,12 +29,6 @@ public class PdfView extends AbstractView {
 	    Resume res = (Resume) model.get("resume");
 	    StandardResume stan = new StandardResume();
 	    
-	    ByteArrayOutputStream bis = new ByteArrayOutputStream();
-	    byte[] bytes = new byte[0];
-	    
-	    bis.write(bytes);
-	    bis.writeTo(response.getOutputStream());
-	    
 	    Document doc = new Document(PageSize.A4);
 	    PdfWriter writer = PdfWriter.getInstance(doc, response.getOutputStream());
 		doc.open();

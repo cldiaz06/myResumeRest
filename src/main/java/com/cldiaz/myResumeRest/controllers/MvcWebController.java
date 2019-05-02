@@ -1,20 +1,26 @@
 package com.cldiaz.myResumeRest.controllers;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cldiaz.myResumeRest.config.ConfigProperties;
 import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.Resume;
+import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
+import com.itextpdf.text.DocumentException;
 
 @Controller
 @RequestMapping("/")
@@ -24,13 +30,8 @@ public class MvcWebController {
 	@Qualifier("jsonGetResume")
 	private GetResume getResume;
 	
-	private ConfigProperties prop;
 	private Resume res;
 	
-	@Autowired
-	public void setGlobalProperties(ConfigProperties prop) {
-		this.prop = prop;
-	}
 
 	@ModelAttribute("resume")
 	public void setResume(Resume res) {
@@ -55,46 +56,38 @@ public class MvcWebController {
 		httpServletResponse.sendRedirect(res.getBasicInfo().getGitUrl());
 	}
 	
-	@GetMapping("/home")
-	public String viewHome(Model model) {
-			
-		model.addAttribute("basicInfo",res.getBasicInfo());
-		
-		return "index";
-	}
+//	@GetMapping("/home")
+//	public String viewHome(Model model) {
+//			
+//		model.addAttribute("basicInfo",res.getBasicInfo());
+//		
+//		return "index";
+//	}
 	
-//	@GetMapping("/exp")
-//	public String viewExperience(Model model) {
-//				
-//		model.addAttribute("experiences", res.getExperience());
-//		return "experience";
-//	}
-//	
-//	@GetMapping("/skills")
-//	public String viewSkills(Model model) {
-//				
-//		model.addAttribute("skills", res.getSkills());
-//		return "skills";
-//	}
-//	
-//	@GetMapping("/edu")
-//	public String viewEducation(Model model) {
-//				
-//		model.addAttribute("educations", res.getEducation());
-//		return "education";
-//	}
-//	
-//	@GetMapping("/years")
-//	public String viewSkillYears(Model model) {
-//				
-//		model.addAttribute("skill_years", res.getYears());
-//		return "skillYears";
-//	}
+	
+	//	@GetMapping("/resume")
+	//	public String getResumePdf(Model model) {
+	//		model.addAttribute("resume", res);
+	//		return "resumeView";
+	//	}
 	
 	@GetMapping("/resume")
-	public String getResumePdf(Model model) {
-		model.addAttribute("resume", res);
-		return "/rest/";
+	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
+				
+		ByteArrayInputStream bis = new ByteArrayInputStream(new byte[0]);
+		
+		StandardResume stan = new StandardResume();
+		
+		bis = stan.buildResumePdfRest(res);
+			
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=resume.pdf");
+			
+		return ResponseEntity
+					.ok()
+					.headers(headers)
+					.contentType(MediaType.APPLICATION_PDF)
+					.body(new InputStreamResource(bis));
 	}
 	
 }
