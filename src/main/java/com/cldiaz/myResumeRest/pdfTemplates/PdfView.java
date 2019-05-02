@@ -1,10 +1,13 @@
 package com.cldiaz.myResumeRest.pdfTemplates;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.AbstractView;
 
@@ -21,9 +24,16 @@ public class PdfView extends AbstractView {
 										   HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 			
-		response.setHeader("Content-Disposition", "inline; filename=Resume.pdf");
+		response.setHeader(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=Resume.pdf");
+		
 	    Resume res = (Resume) model.get("resume");
 	    StandardResume stan = new StandardResume();
+	    
+	    ByteArrayOutputStream bis = new ByteArrayOutputStream();
+	    byte[] bytes = new byte[0];
+	    
+	    bis.write(bytes);
+	    bis.writeTo(response.getOutputStream());
 	    
 	    Document doc = new Document(PageSize.A4);
 	    PdfWriter writer = PdfWriter.getInstance(doc, response.getOutputStream());

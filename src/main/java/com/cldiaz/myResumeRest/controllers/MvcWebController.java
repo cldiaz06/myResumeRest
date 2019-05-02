@@ -94,7 +94,7 @@ public class MvcWebController {
 	@GetMapping("/resume")
 	public String getResumePdf(Model model) {
 		model.addAttribute("resume", res);
-		return "resumeView";
+		return "/rest/";
 	}
 	
 }
