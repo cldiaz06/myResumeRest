@@ -32,7 +32,6 @@ public class MvcWebController {
 	
 	private Resume res;
 	
-
 	@ModelAttribute("resume")
 	public void setResume(Resume res) {
 		this.res = getResume.getResume(false);
