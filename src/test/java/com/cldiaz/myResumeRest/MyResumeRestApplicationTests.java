@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
 import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
+import com.cldiaz.myResumeRest.emailService.testSendingEmail;
 import com.cldiaz.myResumeRest.models.Resume;
 
 
@@ -36,6 +37,13 @@ public class MyResumeRestApplicationTests {
 		System.out.println("******XML****");
 		System.out.println(res.toString());
 		System.out.println("******End XML****");
+	}
+	
+	@Test
+	public void sendEmail() throws Exception {
+		testSendingEmail sendMail = new testSendingEmail();
+		
+		sendMail.sendEmail();
 	}
 	
 }
