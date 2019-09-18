@@ -4,105 +4,100 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldiaz.myResumeRest.config.ConfigProperties;
-import com.cldiaz.myResumeRest.dataImport.JsonGetResume;
-import com.cldiaz.myResumeRest.dataImport.XmlGetResume;
+import com.cldiaz.myResumeRest.interfaces.GetResume;
+import com.cldiaz.myResumeRest.interfaces.PdfResumeGenerator;
+import com.cldiaz.myResumeRest.interfaces.SendEmailService;
+import com.cldiaz.myResumeRest.models.BasicInfo;
+import com.cldiaz.myResumeRest.models.Education;
 import com.cldiaz.myResumeRest.models.Resume;
-import com.cldiaz.myResumeRest.pdfTemplates.StandardResume;
 import com.itextpdf.text.DocumentException;
 
 @RestController
 @RequestMapping("/rest")
 public class ResumeRestController {
 
-	@Autowired
-	private JsonGetResume jsonGetResume;
-	
-	@Autowired
-	private XmlGetResume xmlGetResume;
-	
-	@Autowired
-	private StandardResume stan;
-
-	private ConfigProperties prop;
+	private GetResume getResume;
 	private Resume res;
+
+	private SendEmailService sendEmailService;
+	private PdfResumeGenerator pdfResumeGenerator;
+
+	@Autowired
+	private ConfigProperties config;
 	
 	@Autowired
-	public void setGlobalProperties(ConfigProperties prop) {
-		this.prop = prop;
+	public void setGetResume(ApplicationContext context) {
+		if(config.getFileType().equals("xml")) {
+			getResume = (GetResume) context.getBean("xmlGetResume");
+		} else {
+			getResume = (GetResume) context.getBean("jsonGetResume");
+		}
 	}
 	
-	private String getPropFileType() {
-		return prop.getFileType();
+	@Autowired
+	public void setPdfResumeGenerator(ApplicationContext context) {
+		if(config.getTemplate().equals("standard")) {
+			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
+		} else {
+			pdfResumeGenerator = (PdfResumeGenerator) context.getBean("standard");
+		}
 	}
 	
-	private String getPropTemplate() {
-		return prop.getTemplate();
+	@Autowired
+	public void setEmailService(ApplicationContext context) {
+		sendEmailService = (SendEmailService) context.getBean("testSendingEmail");
 	}
 	
-	@GetMapping(value="/getResume/", produces="application/json")
-	//@CrossOrigin(origins ="http://localhost:3000")
-	public Resume getResume() {
-		
-		res = jsonGetResume.getResume(false);		
-		
-		return res;
+	
+	@ModelAttribute("resume")
+	public void setResume(Resume res) {
+		this.res = getResume.getResume(false);
 	}
 	
-	@GetMapping(value="/getResume/xml", produces="application/xml")
-	public Resume getResumeXml() {
-		
-		res = xmlGetResume.getResume(false);		
-		
-		return res;
+	@GetMapping(value="/basicInfo")
+	public BasicInfo getBasicInfo() {
+		return res.getBasicInfo();
 	}
 	
-	@GetMapping(value ="/getResume/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
-		
-		String fileType = getPropFileType();
-		String template = getPropTemplate();
 		
 		ByteArrayInputStream bis = new ByteArrayInputStream(new byte[0]);
 		
-		if(!fileType.isEmpty()){
-			if (fileType.equals("json")){
-				res = jsonGetResume.getResume(false);
-			}
-			else if(fileType.equals("xml")) {
-				res = xmlGetResume.getResume(false);
-			}
-			else {
-				res = null;
-			}
-		}
+		bis = pdfResumeGenerator.buildResumePdfRest(res);
 		
-		if(!template.isEmpty()) {
-
-			if (template.equals("standard")){
-				bis = stan.buildResumePdfRest(res);
-			}
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=resume.pdf");
 			
-			HttpHeaders headers = new HttpHeaders();
-			headers.add("Content-Disposition", "inline; filename=resume.pdf");
-			
-			return ResponseEntity
+		return ResponseEntity
 					.ok()
 					.headers(headers)
 					.contentType(MediaType.APPLICATION_PDF)
 					.body(new InputStreamResource(bis));
-		} else {
-			return null;
-		}
 
+	}
+	
+	@GetMapping("/sendEmail")
+	@ResponseBody
+	public String sendEmail() {
+		try {
+			sendEmailService.sendEmail();
+			return "Email Sent";
+		}catch (Exception ex){
+			return "Error in sending mail: " + ex;
+		}
 	}
 	
 	
