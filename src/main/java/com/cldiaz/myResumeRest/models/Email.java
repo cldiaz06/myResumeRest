@@ -15,6 +15,7 @@ public class Email {
 	
 	private String name;
 	private String email;
+	private String subject;
 	private String body;
 	
 }

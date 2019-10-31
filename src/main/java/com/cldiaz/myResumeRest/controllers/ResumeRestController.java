@@ -9,10 +9,11 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cldiaz.myResumeRest.config.ConfigProperties;
@@ -20,7 +21,7 @@ import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.interfaces.PdfResumeGenerator;
 import com.cldiaz.myResumeRest.interfaces.SendEmailService;
 import com.cldiaz.myResumeRest.models.BasicInfo;
-import com.cldiaz.myResumeRest.models.Education;
+import com.cldiaz.myResumeRest.models.Email;
 import com.cldiaz.myResumeRest.models.Resume;
 import com.itextpdf.text.DocumentException;
 
@@ -71,6 +72,12 @@ public class ResumeRestController {
 		return res.getBasicInfo();
 	}
 	
+	@CrossOrigin(origins="http://localhost:3000")
+	@GetMapping(value="/")
+	public Resume getResumeDate() {
+		return res;
+	}
+	
 	@GetMapping(value ="/getResumePdf", produces = MediaType.APPLICATION_PDF_VALUE)
 	public ResponseEntity<InputStreamResource> getResumePdf() throws IOException, DocumentException {
 		
@@ -90,14 +97,8 @@ public class ResumeRestController {
 	}
 	
 	@GetMapping("/sendEmail")
-	@ResponseBody
-	public String sendEmail() {
-		try {
-			sendEmailService.sendEmail();
-			return "Email Sent";
-		}catch (Exception ex){
-			return "Error in sending mail: " + ex;
-		}
+	public ResponseEntity<Email> sendEmail(@RequestBody Email email){
+		return ResponseEntity.ok().body(email);
 	}
 	
 	

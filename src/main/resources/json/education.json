@@ -27,20 +27,27 @@
 					"endDate" : "Current",
 					"schoolName" : "Udemy: React vs Angular vs Vue by Example by Gary Simon",
 					"location" : "Chicago, IL",
-					"achievement" : "Completed Vue app, while React and Angular in progess"
+					"achievement" : "Completed Vue app."
 		 	 }, 
-		 	  	 {
+		 	 {
 		 			"startDate" : "2018",
 					"endDate" : "Current",
 					"schoolName" : "Udemy: Angular & nodeJS - Mean stack by Max Schwarzmuller",
 					"location" : "Chicago, IL",
 					"achievement" : "Completed posting app to run with reactive dom."
 		 	 },
-			 	{
- 				"startDate" : "2019",
- 				"endDate" : "Current",
-				"schoolName" : "Udemy: Python Data Science and Learing Mach by Jose Portilla",
-				"location" : "Chicago, IL",
-				"achievement" : "Work in progress"
-			}
+		 	 {
+		 	 	    "startDate" : "2019",
+					"endDate" : "Current",
+					"schoolName" : "Udemy: React- Complete Guide by Max Schwarzmuller",
+					"location" : "Chicago, IL",
+					"achievement" : "App still in progress"
+		 	 },
+		 	 {
+		 	 	    "startDate" : "2019",
+					"endDate" : "Current",
+					"schoolName" : "Udemy: Microservice w/ Spring Boot & Spring Cloud",
+					"location" : "Chicago, IL",
+					"achievement" : "in progress"
+		 	 }
 ]

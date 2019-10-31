@@ -9,6 +9,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.cldiaz.myResumeRest.interfaces.SendEmailService;
+import com.cldiaz.myResumeRest.models.Email;
 
 @Service("testSendingEmail")
 public class testSendingEmail implements SendEmailService {
@@ -25,6 +26,12 @@ public class testSendingEmail implements SendEmailService {
 		helper.setSubject("from myResumeRest");
 		
 		sender.send(message);
+	}
+
+	@Override
+	public String sendEmail(Email email) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
