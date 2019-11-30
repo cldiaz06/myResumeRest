@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.BasicInfo;
@@ -23,13 +24,20 @@ public class XmlGetResume implements GetResume {
 	public Resume getResume(Boolean debug) {
 		try {
 			
-			ClassLoader classLoader = getClass().getClassLoader();
-			File basicXml = new File(classLoader.getResource("xml/basicInfo.xml").getFile());
-			File skillXml = new File(classLoader.getResource("xml/skills.xml").getFile());
-			File educationXml = new File(classLoader.getResource("xml/education.xml").getFile());
-			File experienceXml = new File(classLoader.getResource("xml/experience.xml").getFile());
-			File yearsXml = new File(classLoader.getResource("xml/skill_years.xml").getFile());
-			File interestXml = new File(classLoader.getResource("xml/interests.xml").getFile());
+//			ClassLoader classLoader = getClass().getClassLoader();
+//			File basicXml = new File(classLoader.getResource("xml/basicInfo.xml").getFile());
+//			File skillXml = new File(classLoader.getResource("xml/skills.xml").getFile());
+//			File educationXml = new File(classLoader.getResource("xml/education.xml").getFile());
+//			File experienceXml = new File(classLoader.getResource("xml/experience.xml").getFile());
+//			File yearsXml = new File(classLoader.getResource("xml/skill_years.xml").getFile());
+//			File interestXml = new File(classLoader.getResource("xml/interests.xml").getFile());
+			
+			File basicXml = ResourceUtils.getFile("classpath:xml/basicInfo.xml");
+			File skillXml = ResourceUtils.getFile("classpath:xml/skills.xml");
+			File educationXml = ResourceUtils.getFile("classpath:xml/education.xml");
+			File experienceXml = ResourceUtils.getFile("classpath:xml/experience.xml");
+			File yearsXml = ResourceUtils.getFile("classpath:xml/skill_years.xml");
+			File interestXml = ResourceUtils.getFile("classpath:xml/interests.xml");
 			
 			ObjectMapper mapper = new XmlMapper();
 			

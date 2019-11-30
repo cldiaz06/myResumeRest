@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
 import com.cldiaz.myResumeRest.interfaces.GetResume;
 import com.cldiaz.myResumeRest.models.BasicInfo;
@@ -23,13 +24,20 @@ public class JsonGetResume implements GetResume {
 		// TODO Auto-generated method stub
 		try {
 		
-			ClassLoader classLoader = getClass().getClassLoader();
-			File basicJson = new File(classLoader.getResource("json/basicInfo.json").getFile());
-			File skillJson = new File(classLoader.getResource("json/skills.json").getFile());
-			File educationJson = new File(classLoader.getResource("json/education.json").getFile());
-			File experienceJson = new File(classLoader.getResource("json/experience.json").getFile());
-			File yearsJson = new File(classLoader.getResource("json/skill_years.json").getFile());
-			File interestJson = new File(classLoader.getResource("json/interests.json").getFile());
+			//ClassLoader classLoader = getClass().getClassLoader();
+//			File basicJson = new File(classLoader.getResource("json/basicInfo.json").getFile());
+//			File skillJson = new File(classLoader.getResource("json/skills.json").getFile());
+//			File educationJson = new File(classLoader.getResource("json/education.json").getFile());
+//			File experienceJson = new File(classLoader.getResource("json/experience.json").getFile());
+//			File yearsJson = new File(classLoader.getResource("json/skill_years.json").getFile());
+//			File interestJson = new File(classLoader.getResource("json/interests.json").getFile());
+			
+			File basicJson = ResourceUtils.getFile("classpath:json/basicInfo.json");
+			File skillJson = ResourceUtils.getFile("classpath:json/skills.json");
+			File educationJson = ResourceUtils.getFile("classpath:json/education.json");
+			File experienceJson = ResourceUtils.getFile("classpath:json/experience.json");
+			File yearsJson = ResourceUtils.getFile("classpath:json/skill_years.json");
+			File interestJson = ResourceUtils.getFile("classpath:json/interests.json");
 			
 			ObjectMapper mapper = new ObjectMapper();
 			
